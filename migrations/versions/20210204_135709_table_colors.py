@@ -1,8 +1,8 @@
 """table_colors
 
-Revision ID: 99c49d540862
+Revision ID: 2da4261dbea0
 Revises: e6e174f09340
-Create Date: 2021-02-04 12:38:47.068575
+Create Date: 2021-02-04 13:57:09.030923
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '99c49d540862'
+revision = '2da4261dbea0'
 down_revision = 'e6e174f09340'
 branch_labels = None
 depends_on = None
