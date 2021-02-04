@@ -8,6 +8,7 @@ class Category(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(25), nullable=False)
 
+    entry = db.relationship('Entry', back_populates="category")
 
     def to_dict(self):
         return {
