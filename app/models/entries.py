@@ -21,6 +21,7 @@ class Entry(db.Model, UserMixin):
     user = db.relationship('User', back_populates='entries')
     journal = db.relationship('Journal', back_populates='entries')
     category = db.relationship('Category', back_populates='entry')
+    images = db.relationship('Image', back_populates='entry')
 
     def to_dict(self):
         return {
