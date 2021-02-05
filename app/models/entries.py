@@ -13,7 +13,7 @@ class Entry(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text, nullable=False)
     date = db.Column(db.Date, nullable=False)
-    page_layout = db.Column(db.Enum(PageLayout))
+    page_layout = db.Column(db.Enum(PageLayout), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     journal_id = db.Column(db.Integer, db.ForeignKey('journals.id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)

@@ -1,8 +1,8 @@
 """table_entries
 
-Revision ID: 7f431f77af07
-Revises: 8f656a4a3d82
-Create Date: 2021-02-04 16:57:43.764486
+Revision ID: db21b194e03a
+Revises: 37a7e8073e4c
+Create Date: 2021-02-05 13:33:07.184552
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7f431f77af07'
-down_revision = '8f656a4a3d82'
+revision = 'db21b194e03a'
+down_revision = '37a7e8073e4c'
 branch_labels = None
 depends_on = None
 
@@ -22,7 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('body', sa.Text(), nullable=False),
     sa.Column('date', sa.Date(), nullable=False),
-    sa.Column('page_layout', sa.Enum('layout_one', 'layout_two', 'layout_three', name='pagelayout'), nullable=True),
+    sa.Column('page_layout', sa.Enum('layout_one', 'layout_two', 'layout_three', name='pagelayout'), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('journal_id', sa.Integer(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=False),

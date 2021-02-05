@@ -1,8 +1,8 @@
-"""user categories
+"""table_categories
 
-Revision ID: e6e174f09340
-Revises: ffdc0a98111c
-Create Date: 2021-02-03 17:42:49.264411
+Revision ID: 473be5d62e68
+Revises: ec85529b2ff5
+Create Date: 2021-02-05 12:28:42.846559
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e6e174f09340'
-down_revision = 'ffdc0a98111c'
+revision = '473be5d62e68'
+down_revision = 'ec85529b2ff5'
 branch_labels = None
 depends_on = None
 
@@ -29,7 +29,7 @@ def upgrade():
         [
             {'name': 'A day in the life'},
             {'name': 'A day to remember'},
-            {'name': 'Vaca Day'},
+            {'name': 'Vacation Day'},
             {'name': 'Special Day'},
         ]  
     )

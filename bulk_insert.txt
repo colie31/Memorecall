@@ -1,0 +1,8 @@
+op.bulk_insert(category_table,
+        [
+            {'name': 'A day in the life'},
+            {'name': 'A day to remember'},
+            {'name': 'Vacation Day'},
+            {'name': 'Special Day'},
+        ]  
+    )
