@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-# from app.models import Journal
+from app.models import Journal
 from app.forms import JournalForm
 from flask_login import login_required, current_user
 from .auth_routes import validation_errors_to_error_messages
