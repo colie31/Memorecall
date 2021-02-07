@@ -1,1 +1,22 @@
 /* TODO Add site wide styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+}
+
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+#root {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "nav nav nav nav"
+                         "body body body body"
+                         "footer footer footer footer";
+}
