@@ -33,21 +33,17 @@ function App() {
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
-        <Route path="/login" exact={true}>
+        <Route path="/login_signup" exact={true}>
           <div className="book-container">
-            Hello
             <LoginForm
               authenticated={authenticated}
               setAuthenticated={setAuthenticated}
             />
+            <SignUpForm
+              authenticated={authenticated}
+              setAuthenticated={setAuthenticated}
+            />
           </div>
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
-          <Book />
         </Route>
         <ProtectedRoute
           path="/users"

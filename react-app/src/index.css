@@ -74,13 +74,18 @@ footer {
 }
 
 .book-container {
+    display: flex;
+    justify-content: space-around;
     grid-area: body;
-    /* margin: auto; */
     margin: 150px 400px;
     position: absolute;
     height: 518px;
     width: 911px;
     background-image: url('../src/components/journal_image/book3.svg');
+}
+
+.book-container > * {
+    margin-top: 100px;
 }
 
 
