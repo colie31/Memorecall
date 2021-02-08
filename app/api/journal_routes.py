@@ -7,22 +7,22 @@ from .auth_routes import validation_errors_to_error_messages
 journal_routes = Blueprint('journals', __name__)
 
 # grab all journals
-@login_required
 @journal_routes.route('/')
+@login_required
 def index():
     journals = Journal.query.all()
     return { 'journals': [journal.to_dict() for journal in journals] }
 
 # grab one journal
-@login_required
 @journal_routes.route('/<int:id>')
+@login_required
 def find_journal(id):
     journal = Journal.query.get_or_404(id)
     return journal.to_dict()
 
 # create a journal
-@login_required
 @journal_routes.route('/', methods=['POST'])
+@login_required
 def create_journal():
     form = JournalForm()
     form['csrf_token'].data = request.cookies['csrf_token']
