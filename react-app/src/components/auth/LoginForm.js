@@ -30,7 +30,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form id="login-form__container" onSubmit={onLogin}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
@@ -55,8 +55,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
           value={password}
           onChange={updatePassword}
         />
-        <button type="submit">Login</button>
       </div>
+      <button type="submit">Login</button>
     </form>
   );
 };

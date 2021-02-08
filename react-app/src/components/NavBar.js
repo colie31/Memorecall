@@ -4,9 +4,9 @@ import LogoutButton from './auth/LogoutButton';
 
 const NavBar = ({ setAuthenticated }) => {
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav id="nav-bar__container">
+      <ul id="nav-bar__ul">
+        <li id="nav-bar__url-firstchild">
           <NavLink to="/" exact={true} activeClassName="active">
             Home
           </NavLink>

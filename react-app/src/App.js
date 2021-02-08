@@ -8,7 +8,8 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 //
-import Book from './components/journal_image/Book'
+import Book from './components/journal_image/Book';
+import Footer from './components/Footer';
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -36,22 +37,35 @@ function App() {
           <LoginForm
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
-            />
+          />
           <Book />
         </Route>
         <Route path="/sign-up" exact={true}>
-          <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
+          <SignUpForm
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+          <Book />
         </Route>
-        <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-          <UsersList/>
+        <ProtectedRoute
+          path="/users"
+          exact={true}
+          authenticated={authenticated}
+        >
+          <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+        <ProtectedRoute
+          path="/users/:userId"
+          exact={true}
+          authenticated={authenticated}
+        >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <h1>My Home Page</h1>
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
