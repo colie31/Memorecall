@@ -51,11 +51,11 @@ li + li {
     margin-right: 10px;
 }
 
-#svg {
+/* #svg {
     grid-area: body;
     margin: 150px 400px;
     position: absolute;
-}
+} */
 
 footer {
     grid-area: footer;
@@ -71,6 +71,16 @@ footer {
     flex-direction: column;
     height: 200px;
     width: 200px;
+}
+
+.book-container {
+    grid-area: body;
+    /* margin: auto; */
+    margin: 150px 400px;
+    position: absolute;
+    height: 518px;
+    width: 911px;
+    background-image: url('../src/components/journal_image/book3.svg');
 }
 
 
