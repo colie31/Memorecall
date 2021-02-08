@@ -129,8 +129,7 @@ const Book = ({ color }) => {
           width="401"
           height="499"
           rx="36"
-        >
-        </rect>
+        ></rect>
         <rect
           id="Rectangle"
           stroke="#979797"
