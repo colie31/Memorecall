@@ -6,10 +6,11 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
-import { authenticate } from "./services/auth";
+import { authenticate } from "./store/auth";
 //
-import Book from './components/journal_image/Book';
-import Footer from './components/Footer';
+import Book from "./components/journal_image/Book";
+import Footer from "./components/Footer";
+import HomePage from "./components/HomePage"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -60,7 +61,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>My Home Page</h1>
+          <HomePage className="home-page__container" />
         </ProtectedRoute>
       </Switch>
       <Footer />
