@@ -9,15 +9,12 @@ import { getJournals } from "../../store/journals"
 
 const HomePage = () => {
     const dispatch = useDispatch();
-    const journals = useSelector(state => state.journals)
+    const journals = useSelector(state => state.journals.journals)
+    const user = useSelector(state => state.session.user)
 
     useEffect(()=> {
-        dispatch(getJournals())
+        dispatch(getJournals(user.id))
     },[dispatch])
-
-    // if(journals.errors) {
-    //     return null
-    // }
 
     return (
       <div className="home-page__body">
@@ -25,7 +22,7 @@ const HomePage = () => {
             <SideBar />
         </div>
         <div id="home-page__bookcase">
-            <BookCase />
+            <BookCase journals={journals} />
         </div>
       </div>
     );

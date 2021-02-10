@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 //import reducers
 import session from "./auth"
 import journals from "./journals"
+import entries from "./entries"
 
 const rootReducer = combineReducers({
     session,
-    journals
+    journals,
+    entries
 });
 
 let enhancer;

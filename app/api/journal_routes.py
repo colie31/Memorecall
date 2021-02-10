@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Journal
+from app.models import Journal, User
 from app.forms import JournalForm
 from flask_login import login_required, current_user, login_manager
 from .auth_routes import validation_errors_to_error_messages
@@ -7,19 +7,18 @@ from .auth_routes import validation_errors_to_error_messages
 journal_routes = Blueprint('journal', __name__)
 
 # grab all user journals
-@journal_routes.route('/')
-def index():
-    print("first Hello")
-    print("second Hello", current_user.is_authenticated)
-    journals = Journal.query.filter(Journal.user_id == current_user.id).all()
+@journal_routes.route('/<int:id>')
+def index(id):
+    # print("current user", current_user)
+    journals = Journal.query.filter(Journal.user_id == id).all()
     return { 'journals': [journal.to_dict() for journal in journals] }
 
+
 # grab one journal
-@journal_routes.route('/<int:id>')
-@login_required
-def find_journal(id):
-    journal = Journal.query.get_or_404(id)
-    return journal.to_dict()
+# @journal_routes.route('/<int:id>')
+# def find_journal(id):
+#     journal = Journal.query.get_or_404(id)
+#     return journal.to_dict()
 
 # create a journal
 # @journal_routes.route('/', methods=['POST'])

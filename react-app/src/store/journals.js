@@ -1,6 +1,5 @@
 // actions
 const ALL_JOURNALS = "userJournals/ALL"
-const ONE_JOURNAL = "singleUserJournal/ONE"
 // action creators
 const getAllUserJournals = (journals) => ({
     type: ALL_JOURNALS,
@@ -8,17 +7,14 @@ const getAllUserJournals = (journals) => ({
 })
 
 // thunks
-export const getJournals = () => async dispatch => {
-    console.log("hello from getjournals")
-    const res = await fetch("/api/journal");
-    console.log("res", res)
+export const getJournals = (id) => async dispatch => {
+    const res = await fetch(`/api/journal/${id}`);
     const data = await res.json();
-    console.log("DATA", data)
 
-    // if(!data.errors) {
-    //     dispatch(getAllUserJournals(data));
-    // }
-    // return data
+    if(!data.errors) {
+        dispatch(getAllUserJournals(data));
+    }
+    return data
 }
 // reducer
 const initialState = {}

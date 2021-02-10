@@ -50,7 +50,8 @@ export const logout = () => async dispatch => {
     }
   });
 
-  let data = await response.json() 
+  let data = await response.json()
+  dispatch(removeUser())
   return data.message;
 };
 
