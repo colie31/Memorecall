@@ -1,0 +1,13 @@
+.home-page__body {
+    grid-area: body;
+    display: flex;
+    flex-direction: row;
+}
+
+#home-page__sidebar {
+    width: 300px;
+}
+
+#home-page__bookcase {
+    width: 100%;
+}

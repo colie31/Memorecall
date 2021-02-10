@@ -6,13 +6,22 @@ const setUser = (user) => ({
   payload: user
 });
 
-export const authenticate = async() => {
+const removeUser = () => ({
+  type: REMOVE_USER,
+})
+
+export const authenticate = () => async dispatch => {
   const response = await fetch('/api/auth/',{
     headers: {
       'Content-Type': 'application/json'
     }
   });
-  return await response.json();
+
+  let data = await response.json();
+  if(!data.errors) {
+    dispatch(setUser(data));
+  }
+  return data;
 }
 
 export const login = (email, password) => async dispatch => {
@@ -27,22 +36,22 @@ export const login = (email, password) => async dispatch => {
     })
   });
 
-  let data;
-  if(response.ok) {
-    data = await response.json();
+  let data = await response.json()
+  if(!data.errors) {
     dispatch(setUser(data))
   }
-  console.log("DATA", data)
   return data;
 }
 
-export const logout = async () => {
+export const logout = () => async dispatch => {
   const response = await fetch("/api/auth/logout", {
     headers: {
       "Content-Type": "application/json",
     }
   });
-  return await response.json();
+
+  let data = await response.json() 
+  return data.message;
 };
 
 
@@ -69,6 +78,9 @@ const sessionReducer = (state = initialState, action) => {
     case SET_USER:
       newState = Object.assign({}, state, { user: action.payload });
       return newState;
+    case REMOVE_USER:
+      newState = Object.assign({}, state, { user: null })
+      return newState
     default:
       return state;
   }
