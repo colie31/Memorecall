@@ -43,6 +43,7 @@ def login():
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
         return user.to_dict()
+    print("FORM", form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
