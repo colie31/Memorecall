@@ -7,8 +7,5 @@ entry_routes = Blueprint('entries', __name__)
 
 @entry_routes.route('/<int:id>')
 def index(id):
-    entries = Entry.query.filter(Entry.journal_id == id)
-    dict_entries = {'entries': [entry.to_dict() for entry in entries]}
-    print("print id", id)
-    print("print dict", dict_entries)
-    return dict_entries
+    entries = Entry.query.filter(Entry.journal_id == id).order_by(Entry.date.asc()).all()
+    return {'entries': [entry.to_dict() for entry in entries]}

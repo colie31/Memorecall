@@ -31,7 +31,8 @@ class Entry(db.Model, UserMixin):
             'date': self.date,
             'page_layout': self.page_layout.value,
             'user': self.user.username,
-            'journal': self.journal.name,
+            'journal_name': self.journal.name,
+            'journal_id': self.journal_id,
             'category': self.category.name
         }
 

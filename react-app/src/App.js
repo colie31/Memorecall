@@ -12,6 +12,7 @@ import { authenticate } from "./store/auth";
 // import Book from "./components/journal_image/Book";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
+import EntryPage from "./components/EntryPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -26,30 +27,27 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar isLoaded={loaded} />
-      {loaded && ( 
-      <Switch>
-        <Route path="/login_signup" exact={true}>
-          <div className="book-container">
-            <LoginForm />
-            <SignUpForm />
-          </div>
-        </Route>
-        <ProtectedRoute
-          path="/users"
-          exact={true}
-        >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute
-          path="/users/:userId"
-          exact={true}
-        >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true}>
-          <HomePage className="home-page__container" />
-        </ProtectedRoute>
-      </Switch>
+      {loaded && (
+        <Switch>
+          <Route path="/login_signup" exact={true}>
+            <div className="book-container">
+              <LoginForm />
+              <SignUpForm />
+            </div>
+          </Route>
+          <ProtectedRoute path="/users" exact={true}>
+            <UsersList />
+          </ProtectedRoute>
+          <ProtectedRoute path="/users/:userId" exact={true}>
+            <User />
+          </ProtectedRoute>
+          <ProtectedRoute path="/journals/:id" exact={true}>
+            <EntryPage className="entry-page__container" />
+          </ProtectedRoute>
+          <ProtectedRoute path="/journals" exact={true}>
+            <HomePage className="home-page__container" />
+          </ProtectedRoute>
+        </Switch>
       )}
       <Footer />
     </BrowserRouter>
