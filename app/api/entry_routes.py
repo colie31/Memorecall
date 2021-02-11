@@ -7,7 +7,8 @@ entry_routes = Blueprint('entries', __name__)
 
 @entry_routes.route('/<int:id>')
 def index(id):
-    print('hello')
     entries = Entry.query.filter(Entry.journal_id == id)
-    return { 'entries': [entry.to_dict() for entry in entries]}
-    # return { 'hi': entries }
+    dict_entries = {'entries': [entry.to_dict() for entry in entries]}
+    print("print id", id)
+    print("print dict", dict_entries)
+    return dict_entries

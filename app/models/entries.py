@@ -1,6 +1,7 @@
 from .db import db
 from flask_login import UserMixin
 import enum
+import json
 
 class PageLayout(enum.Enum):
     layout_one = 1
@@ -28,9 +29,9 @@ class Entry(db.Model, UserMixin):
             'id': self.id,
             'body': self.body,
             'date': self.date,
-            'page_layout': self.page_layout,
+            'page_layout': self.page_layout.value,
             'user': self.user.username,
-            'journal': self.journal.to_dict,
+            'journal': self.journal.name,
             'category': self.category.name
         }
 
