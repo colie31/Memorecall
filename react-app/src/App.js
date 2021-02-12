@@ -42,7 +42,7 @@ function App() {
             <User />
           </ProtectedRoute>
           <ProtectedRoute path="/journals/:id" exact={true}>
-            <EntryPage className="entry-page__container" />
+            <EntryPage />
           </ProtectedRoute>
           <ProtectedRoute path="/journals" exact={true}>
             <HomePage className="home-page__container" />

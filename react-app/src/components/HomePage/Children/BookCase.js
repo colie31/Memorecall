@@ -9,7 +9,7 @@ const BookCase= ({ journals }) => {
   const history = useHistory();
   
   const directUserToJournal = async (id) => {
-    history.push(`journals/${id}`)
+    history.push(`journals/${id}`);
   }
   
 
