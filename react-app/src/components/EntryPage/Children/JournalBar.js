@@ -9,9 +9,7 @@ import { deleteAnEntry } from "../../../store/entries"
 const JournalBar = ({ currentIndex, selectedDay, setSelectedDay, entries, setIndex }) => {
   const dispatch = useDispatch();
   const entry =  useSelector(state => state.entries.entry);
-  // const [selectedDay, setSelectedDay] = useState(null);
-  // console.log("myEntry", entry)
-  // console.log(selectedDay)
+  
   const goToFirstpage = () => {
     return setIndex(0)
   }
@@ -20,27 +18,17 @@ const JournalBar = ({ currentIndex, selectedDay, setSelectedDay, entries, setInd
     return setIndex(entries.length - 1)
   }
 
-  const findEntryBefore = (entryDate) => {
-    // const entryBeforeIndex = entries.findIndex(anEntry => {
-    //   console.log(anEntry.date_object)
-    //   console.log(entryDate)
-    //   return utils().isBeforeDate(entryDate, anEntry.date_object);
-    // })
-    // console.log("before index", entryBeforeIndex)
-    // return entryBeforeIndex >= 0 ? setIndex(entryBeforeIndex) : setIndex(currentIndex - 1)
+  const findEntryBefore = () => {
     return currentIndex !== 0 ? setIndex(currentIndex-1) : setIndex(0)
   }
 
   const deleteCurrentEntry = () => {
     dispatch(deleteAnEntry(entry.id))
-    return findEntryBefore(entry.date_object);
+    return findEntryBefore();
   }
 
   const setCurrentEntry = (e) => {
     setSelectedDay(e)
-    // const date = entry.date_object
-    // console.log("entrydate", date)
-    // return console.log(new Date(date.year, date.month, date.day).getTime() === new Date(e.year, e.month, e.day).getTime())
     const foundEntryIndex = entries.findIndex(anEntry => {
       const entryDate = anEntry.date_object
       return (
