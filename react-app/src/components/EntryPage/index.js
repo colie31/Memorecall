@@ -15,6 +15,7 @@ const EntryPage = () => {
     const dispatch = useDispatch()
     const entries = useSelector(state => state.entries.entries)
     const [currentEntryIndex, setCurrentEntryIndex] = useState(0);
+    const [selectedDay, setSelectedDay] = useState(null);
         
     useEffect(() => {
         dispatch(getAllJournalEntries(id))
@@ -40,6 +41,9 @@ const EntryPage = () => {
           <JournalBar 
           entries={entries} 
           setIndex={setCurrentEntryIndex}
+          currentIndex={currentEntryIndex}
+          selectedDay={selectedDay}
+          setSelectedDay={setSelectedDay}
            />
         </div>
         <div className="entry-body__container">
@@ -52,7 +56,8 @@ const EntryPage = () => {
               } />
               <Entry 
               index={currentEntryIndex} 
-              entries={entries} />
+              entries={entries} 
+              setSelectedDay={setSelectedDay} />
               <AiFillCaretRight 
               className="entry-body__button" 
               onClick={

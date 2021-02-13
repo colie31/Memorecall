@@ -6,13 +6,12 @@ import DatePicker, { utils } from "react-modern-calendar-datepicker";
 import { deleteAnEntry } from "../../../store/entries"
 
 
-const JournalBar = ({ entries, setIndex }) => {
+const JournalBar = ({ currentIndex, selectedDay, setSelectedDay, entries, setIndex }) => {
   const dispatch = useDispatch();
   const entry =  useSelector(state => state.entries.entry);
-  const [selectedDay, setSelectedDay] = useState(null);
+  // const [selectedDay, setSelectedDay] = useState(null);
   // console.log("myEntry", entry)
-  console.log(selectedDay)
-
+  // console.log(selectedDay)
   const goToFirstpage = () => {
     return setIndex(0)
   }
@@ -21,9 +20,20 @@ const JournalBar = ({ entries, setIndex }) => {
     return setIndex(entries.length - 1)
   }
 
+  const findEntryBefore = (entryDate) => {
+    // const entryBeforeIndex = entries.findIndex(anEntry => {
+    //   console.log(anEntry.date_object)
+    //   console.log(entryDate)
+    //   return utils().isBeforeDate(entryDate, anEntry.date_object);
+    // })
+    // console.log("before index", entryBeforeIndex)
+    // return entryBeforeIndex >= 0 ? setIndex(entryBeforeIndex) : setIndex(currentIndex - 1)
+    return currentIndex !== 0 ? setIndex(currentIndex-1) : setIndex(0)
+  }
+
   const deleteCurrentEntry = () => {
     dispatch(deleteAnEntry(entry.id))
-    return goToLastPage();
+    return findEntryBefore(entry.date_object);
   }
 
   const setCurrentEntry = (e) => {
