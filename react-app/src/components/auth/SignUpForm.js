@@ -35,7 +35,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   };
 
   if (authenticated) {
-    return <Redirect to="/journals" />;
+    return <Redirect to="/" />;
   }
 
   return (

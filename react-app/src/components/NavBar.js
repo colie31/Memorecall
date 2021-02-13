@@ -7,7 +7,7 @@ const NavBar = () => {
     <nav id="nav-bar__container">
       <ul id="nav-bar__ul">
         <li id="nav-bar__url-firstchild">
-          <NavLink to="/journals" exact={true} activeClassName="active">
+          <NavLink to="/" exact={true} activeClassName="active">
             Home
           </NavLink>
         </li>

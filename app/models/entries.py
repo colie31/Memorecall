@@ -25,10 +25,18 @@ class Entry(db.Model, UserMixin):
     images = db.relationship('Image', back_populates='entry')
 
     def to_dict(self):
+        year = self.date.year
+        month = self.date.month
+        day = self.date.day
+        
+
         return {
             'id': self.id,
             'body': self.body,
             'date': self.date,
+            'date_object': {'month': self.date.month,
+                            'year': self.date.year,
+                            'day': self.date.day},
             'page_layout': self.page_layout.value,
             'user': self.user.username,
             'journal_name': self.journal.name,
