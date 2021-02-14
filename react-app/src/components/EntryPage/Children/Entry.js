@@ -19,7 +19,7 @@ const Entry = ({ setSelectedDay, index, entries }) => {
         {entry && (
           <div>
             <p>{moment.parseZone(entry.date).format("LL")}</p>
-            <p>{entry.date}</p>
+            <p>{entry.category}</p>
           </div>
         )}
       </div>
