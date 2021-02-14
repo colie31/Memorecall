@@ -18,8 +18,8 @@ const Entry = ({ setSelectedDay, index, entries }) => {
       <div className="entry-body__page">
         {entry && (
           <div>
-            <p>{moment(entry.date).format("LL")}</p>
-            <p></p>
+            <p>{moment.parseZone(entry.date).format("LL")}</p>
+            <p>{entry.date}</p>
           </div>
         )}
       </div>
