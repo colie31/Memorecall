@@ -52,6 +52,8 @@ const EntryPage = () => {
             setEditable={setEditable}
             editable={editable}
             body={body}
+            imageOne={imageOne}
+            imageTwo={imageTwo}
           />
         </div>
         <div className="entry-body__container">

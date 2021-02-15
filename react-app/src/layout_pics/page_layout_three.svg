@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="571px" height="660px" viewBox="0 0 571 660" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Untitled</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" x="0.5" y="0.5" width="570" height="659"></rect>
+        <line x1="298.5" y1="127.5" x2="535.5" y2="127.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="169.5" x2="535.5" y2="169.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="211.5" x2="535.5" y2="211.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="253.5" x2="535.5" y2="253.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="337.5" x2="535.5" y2="337.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="379.5" x2="535.5" y2="379.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="421.5" x2="535.5" y2="421.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="463.5" x2="535.5" y2="463.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="505.5" x2="535.5" y2="505.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="547.5" x2="535.5" y2="547.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <line x1="298.5" y1="295.5" x2="535.5" y2="295.5" id="Line" stroke="#979797" stroke-linecap="square"></line>
+        <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="37.5" y="128.5" width="226" height="201"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="37.5" y="363.5" width="226" height="201"></rect>
+    </g>
+</svg>

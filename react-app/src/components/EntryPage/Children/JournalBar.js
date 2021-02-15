@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom"
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker, { utils } from "react-modern-calendar-datepicker";
 //actions
 import { deleteAnEntry } from "../../../store/entries"
 
 
+
 const JournalBar = ({
   body,
+  imageOne,
+  imageTwo,
   editable, 
   setEditable, 
   currentIndex, 
@@ -15,6 +19,9 @@ const JournalBar = ({
   setSelectedDay, 
   entries, 
   setIndex }) => {
+  
+  const { id } = useParams();
+  const history = useHistory();
 
   const dispatch = useDispatch();
   const entry =  useSelector(state => state.entries.entry);
@@ -50,9 +57,11 @@ const JournalBar = ({
 
   // save functions
   const saveChanges = () => {
-    console.log("journal bar", body.current)
+    console.log("journal bar", body.current, imageOne.current, imageTwo.current)
     setEditable(false);
   }
+
+
 
   let bar;
   if(editable) {
@@ -76,7 +85,7 @@ const JournalBar = ({
         <button className="journal-bar__buttons" onClick={() => goToLastPage()}>
           Last Page
         </button>
-        <button className="journal-bar__buttons" onClick={() => null}>
+        <button className="journal-bar__buttons" onClick={() => history.push(`/journals/${id}/new`)}>
           Add
         </button>
         <button 

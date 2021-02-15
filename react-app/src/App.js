@@ -13,6 +13,7 @@ import { authenticate } from "./store/auth";
 import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
 import EntryPage from "./components/EntryPage"
+import NewEntryPage from "./components/NewEntryPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path="/journals/:id" exact={true}>
             <EntryPage />
+          </ProtectedRoute>
+          <ProtectedRoute path="/journals/:id/new" exact={true}>
+            <NewEntryPage />
           </ProtectedRoute>
           <ProtectedRoute path="/" exact={true}>
             <HomePage className="home-page__container" />

@@ -11,3 +11,8 @@
 #home-page__bookcase {
     width: 100%;
 }
+
+.side-bar__container {
+    display: flex;
+    flex-direction: column;
+}

@@ -31,8 +31,9 @@
 }
 
 .entry-body__page {
+    background: #f8f8ff;
     margin: 0;
-    border: 2px solid black;
+    border: 1px solid black;
     height: 100vh;
     width: 1000px;
 }
