@@ -77,8 +77,9 @@ footer {
     display: flex;
     justify-content: space-around;
     grid-area: body;
-    margin: 150px 400px;
-    position: absolute;
+    margin: auto auto;
+    /* position: absolute;
+    /* margin: 0; */
     height: 518px;
     width: 911px;
     background-image: url('../src/components/journal_image/book3.svg');

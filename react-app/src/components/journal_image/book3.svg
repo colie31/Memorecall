@@ -5,13 +5,13 @@
         <rect id="Rectangle" stroke="#979797" fill="#2ECC71" x="408.5" y="18.5" width="97" height="494" rx="36"></rect>
         <rect id="Rectangle" stroke="#979797" fill="#2ECC71" stroke-linejoin="round" transform="translate(229.001904, 259.218155) rotate(-1.000000) translate(-229.001904, -259.218155) " x="5.00190381" y="5.21815508" width="448" height="508" rx="36"></rect>
         <rect id="Rectangle" stroke="#979797" fill="#2ECC71" stroke-linejoin="round" transform="translate(683.001904, 260.218155) rotate(1.000000) translate(-683.001904, -260.218155) " x="459.001904" y="6.21815508" width="448" height="508" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" x="442.5" y="39.5" width="24" height="458"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" transform="translate(238.500000, 259.000000) rotate(-1.000000) translate(-238.500000, -259.000000) " x="24.5" y="9.5" width="428" height="499" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" transform="translate(677.500000, 259.000000) rotate(1.000000) translate(-677.500000, -259.000000) " x="463.5" y="9.5" width="428" height="499" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" transform="translate(245.000000, 259.000000) rotate(-1.000000) translate(-245.000000, -259.000000) " x="37.5" y="9.5" width="415" height="499" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" transform="translate(670.000000, 259.000000) rotate(1.000000) translate(-670.000000, -259.000000) " x="462.5" y="9.5" width="415" height="499" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" x="55.5" y="9.5" width="401" height="499" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" x="455.5" y="9.5" width="401" height="499" rx="36"></rect>
-        <rect id="Rectangle" stroke="#979797" fill="#FFFFFF" x="55.5" y="9.5" width="401" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" x="442.5" y="39.5" width="24" height="458"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" transform="translate(238.500000, 259.000000) rotate(-1.000000) translate(-238.500000, -259.000000) " x="24.5" y="9.5" width="428" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" transform="translate(677.500000, 259.000000) rotate(1.000000) translate(-677.500000, -259.000000) " x="463.5" y="9.5" width="428" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" transform="translate(245.000000, 259.000000) rotate(-1.000000) translate(-245.000000, -259.000000) " x="37.5" y="9.5" width="415" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" transform="translate(670.000000, 259.000000) rotate(1.000000) translate(-670.000000, -259.000000) " x="462.5" y="9.5" width="415" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" x="55.5" y="9.5" width="401" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" x="455.5" y="9.5" width="401" height="499" rx="36"></rect>
+        <rect id="Rectangle" stroke="#979797" fill="#f8f8ff" x="55.5" y="9.5" width="401" height="499" rx="36"></rect>
     </g>
 </svg>

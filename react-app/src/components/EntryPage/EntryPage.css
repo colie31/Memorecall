@@ -31,15 +31,24 @@
 }
 
 .entry-body__page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #f8f8ff;
-    margin: 0;
+    margin: 20px;
     border: 1px solid black;
-    height: 100vh;
+    height: 80vh;
     width: 1000px;
+}
+
+.entry-body__page > * {
+    margin: 40px;
 }
 
 .single-image {
     height: 250px;
     width: 250px;
     object-fit: cover;
+    margin-bottom: 20px;
+    
 }
