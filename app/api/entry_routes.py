@@ -1,8 +1,24 @@
 from flask import Blueprint, request
-from app.models import Entry, Journal, User
+from app.models import Entry, Journal, User, Image
 # from app.forms import JournalForm
 from .auth_routes import validation_errors_to_error_messages
 from ..models import db
+# for images
+# from werkzeug.utils import secure_filename
+# from ..helpers import *
+# from flask import request
+# make a new form data on the front end
+# send to route
+# grab the image url
+# const form = new FormData();
+# form.append("image", image);
+# image = request.files["image"]
+
+# image.filename = secure_filename(image.filename)
+# imgUrl = upload_file_to_s3(image, Config.S3_BUCKET)
+# from ..config import Config
+
+
 
 entry_routes = Blueprint('entries', __name__)
 
@@ -19,3 +35,5 @@ def delete_entry(id):
     db.session.delete(entry)
     db.session.commit()
     return { 'message': 'Success' }
+
+# create entry

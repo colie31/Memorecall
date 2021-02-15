@@ -41,6 +41,7 @@ class Entry(db.Model, UserMixin):
             'user': self.user.username,
             'journal_name': self.journal.name,
             'journal_id': self.journal_id,
-            'category': self.category.name
+            'category': self.category.name,
+            'images': [image.to_dict() for image in self.images]
         }
 

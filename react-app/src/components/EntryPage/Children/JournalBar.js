@@ -6,7 +6,16 @@ import DatePicker, { utils } from "react-modern-calendar-datepicker";
 import { deleteAnEntry } from "../../../store/entries"
 
 
-const JournalBar = ({ currentIndex, selectedDay, setSelectedDay, entries, setIndex }) => {
+const JournalBar = ({
+  body,
+  editable, 
+  setEditable, 
+  currentIndex, 
+  selectedDay, 
+  setSelectedDay, 
+  entries, 
+  setIndex }) => {
+
   const dispatch = useDispatch();
   const entry =  useSelector(state => state.entries.entry);
   
@@ -39,43 +48,62 @@ const JournalBar = ({ currentIndex, selectedDay, setSelectedDay, entries, setInd
     return foundEntryIndex >= 0 ? setIndex(foundEntryIndex) : null
   }
 
+  // save functions
+  const saveChanges = () => {
+    console.log("journal bar", body.current)
+    setEditable(false);
+  }
+
+  let bar;
+  if(editable) {
+    bar = (
+      <>
+      <button
+      onClick={() => saveChanges()}>Save</button>
+      <button
+      onClick={() => setEditable(false)}>Cancel</button>
+      </>
+      )
+  } else {
+    bar = (
+      <>
+        <button
+          className="journal-bar__buttons"
+          onClick={() => goToFirstpage()}
+        >
+          First Page
+        </button>
+        <button className="journal-bar__buttons" onClick={() => goToLastPage()}>
+          Last Page
+        </button>
+        <button className="journal-bar__buttons" onClick={() => null}>
+          Add
+        </button>
+        <button 
+        className="journal-bar__buttons" 
+        onClick={() => setEditable(true)}>
+          Edit
+        </button>
+        <button
+          className="journal-bar__buttons"
+          onClick={() => deleteCurrentEntry()}
+        >
+          Delete
+        </button>
+        <DatePicker
+          value={selectedDay}
+          onChange={setCurrentEntry}
+          // minimumDate={entries[0].date_object}
+          maximumDate={utils().getToday()}
+          inputPlaceholder="search entries by date..."
+        />
+      </>
+    );
+  }
+
   return (
     <>
-      {entry && (
-        <>
-          <button
-            className="journal-bar__buttons"
-            onClick={() => goToFirstpage()}
-          >
-            First Page
-          </button>
-          <button
-            className="journal-bar__buttons"
-            onClick={() => goToLastPage()}
-          >
-            Last Page
-          </button>
-          <button className="journal-bar__buttons" onClick={() => null}>
-            Add
-          </button>
-          <button className="journal-bar__buttons" onClick={() => null}>
-            Edit
-          </button>
-          <button
-            className="journal-bar__buttons"
-            onClick={() => deleteCurrentEntry()}
-          >
-            Delete
-          </button>
-          <DatePicker
-            value={selectedDay}
-            onChange={setCurrentEntry}
-            // minimumDate={entries[0].date_object}
-            maximumDate={utils().getToday()}
-            inputPlaceholder="search entries by date..."
-          />
-        </>
-      )}
+      {entry && bar}
     </>
   );
 };

@@ -1,21 +1,21 @@
 import React from "react";
 import Body from "../PageComponents/Body"
 
-const LayoutOne = ({ 
+const LayoutThree = ({
     body, 
-    editable, 
+    editable,
     entry
 }) => {
 
     body.current = entry.body;
-    const classImage = "single-image"
 
     return (
-        <Body 
+        <>
+        <Body
         editable={editable}
-        body={body}
-     />
+        body={body} />
+        </>
     )
-}
+};
 
-export default LayoutOne;
+export default LayoutThree;
