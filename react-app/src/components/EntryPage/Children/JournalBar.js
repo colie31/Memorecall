@@ -52,7 +52,7 @@ const JournalBar = ({
         new Date(e.year, e.month, e.day).getTime()
       );
     })
-    return foundEntryIndex >= 0 ? setIndex(foundEntryIndex) : null
+    return foundEntryIndex >= 0 ? setIndex(foundEntryIndex) : alert(`no`)
   }
 
   // save functions
