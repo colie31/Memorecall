@@ -33,22 +33,34 @@
 .entry-body__page {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     background: #f8f8ff;
     margin: 20px;
     border: 1px solid black;
     height: 80vh;
-    width: 1000px;
+    width: 800px;
+    overflow:scroll;
+    overflow-x:hidden;
 }
 
 .entry-body__page > * {
-    margin: 40px;
+    margin: 20px;
+}
+
+.entry-body__page div:first-child {
+    margin-bottom: 0;
+}
+
+.entry-body__content {
+    display: flex;
+    flex-direction: column;
 }
 
 .single-image {
+    margin-top: 0;
     height: 250px;
-    width: 250px;
+    width: 400px;
     object-fit: cover;
-    margin-bottom: 20px;
-    
+    margin-bottom: 40px;
+    align-self: center;
 }

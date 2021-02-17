@@ -43,7 +43,7 @@ const Entry = ({
             <p>{moment.parseZone(entry.date).format("LL")}</p>
             <p>{entry.category}</p>
           </div>
-          <div>
+          <div className="entry-body__content">
             {page}
           </div>
           </>
