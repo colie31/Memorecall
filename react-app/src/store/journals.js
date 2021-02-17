@@ -1,9 +1,15 @@
 // actions
 const ALL_JOURNALS = "userJournals/ALL"
+const ADD_A_JOURNAL = "addAJournalToJournals/ALL"
 // action creators
-const getAllUserJournals = (journals) => ({
+const addAllUserJournals = (journals) => ({
     type: ALL_JOURNALS,
     payload: journals
+})
+
+const addJournal = (journal) => ({
+    type: ADD_A_JOURNAL,
+    payload: journal
 })
 
 // thunks
@@ -12,11 +18,19 @@ export const getJournals = (id) => async dispatch => {
     const data = await res.json();
 
     if(!data.errors) {
-        dispatch(getAllUserJournals(data));
+        dispatch(addAllUserJournals(data));
     }
     return data
 }
-// reducer
+
+export const createJournal = (newJournal) => async dispatch => {
+    console.log("new journal", newJournal)
+}
+
+export const updateJournal = (updatedJournal) => async dispatch => {
+    console.log("updated journal", updatedJournal)
+}
+
 const initialState = {}
 
 const journalReducer = (state = initialState, action) => {

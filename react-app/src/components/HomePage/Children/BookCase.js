@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getJournals } from "../../../store/journals";
 
 
-const BookCase= ({ setJournalId }) => {
+const BookCase= ({ setTheJournal }) => {
   
 
   const dispatch = useDispatch();
@@ -24,7 +24,10 @@ const BookCase= ({ setJournalId }) => {
             style={{ background: journal.color }}
           >
             <div 
-            onClick={() => setJournalId(journal.id)}
+            onClick={() => setTheJournal({ 
+              name:journal.name, 
+              id:journal.id, 
+              color:journal.color})}
             >{journal.name}</div>
           </div>
         );

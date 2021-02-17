@@ -5,8 +5,6 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
 import { authenticate } from "./store/auth";
 //
 // import Book from "./components/journal_image/Book";
@@ -17,7 +15,6 @@ import NewEntryPage from "./components/NewEntryPage"
 
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

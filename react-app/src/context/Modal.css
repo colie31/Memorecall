@@ -19,7 +19,14 @@
 }
 
 #modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
   position: absolute;
   background-color:white;
-  border-radius: 10%;
+  border-radius: 5%;
+  height: 600px;
+  width: 600px;
 }
+
