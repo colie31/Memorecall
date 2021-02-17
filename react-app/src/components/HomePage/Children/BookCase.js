@@ -1,29 +1,33 @@
-import React from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom"
-import { getAllJournalEntries } from "../../../store/entries"
+import { getJournals } from "../../../store/journals";
 
 
-const BookCase= ({ journals }) => {
+const BookCase= ({ setJournalId }) => {
+  
+
   const dispatch = useDispatch();
-  const history = useHistory();
+  const journals = useSelector((state) => state.journals.journals);
+  const user = useSelector((state) => state.session.user);
   
-  const directUserToJournal = async (id) => {
-    history.push(`journals/${id}`);
-  }
-  
+   useEffect(() => {
+     dispatch(getJournals(user.id));
+   }, []);
 
   return (
       <>
       {journals && journals.map(journal => {
         return (
-          <div key={journal.id} className="journal" style={{ background: journal.color }}>
-            <div
-            onClick={
-              () => directUserToJournal(journal.id)
-            }>{journal.name}</div>
+          <div
+            key={journal.id}
+            className="journal"
+            style={{ background: journal.color }}
+          >
+            <div 
+            onClick={() => setJournalId(journal.id)}
+            >{journal.name}</div>
           </div>
-        )
+        );
         })}
       </>
   )

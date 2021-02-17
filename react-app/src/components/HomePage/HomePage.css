@@ -6,6 +6,7 @@
 
 #home-page__sidebar {
     width: 300px;
+    background: rgba(217, 218, 176, .3)
 }
 
 #home-page__bookcase {
@@ -15,4 +16,11 @@
 .side-bar__container {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+}
+
+.side-bar__container > * {
+    margin: 10px;
+    height: 40px;
+    border-radius: 5px;
 }
