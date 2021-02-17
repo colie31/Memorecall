@@ -36,12 +36,6 @@ function App() {
               <SignUpForm />
             </div>
           </Route>
-          <ProtectedRoute path="/users" exact={true}>
-            <UsersList />
-          </ProtectedRoute>
-          <ProtectedRoute path="/users/:userId" exact={true}>
-            <User />
-          </ProtectedRoute>
           <ProtectedRoute path="/journals/:id" exact={true}>
             <EntryPage />
           </ProtectedRoute>
