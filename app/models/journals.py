@@ -17,5 +17,5 @@ class Journal(db.Model, UserMixin):
             'id': self.id,
             'name': self.name,
             'color': self.color,
-            'user': self.user.username
+            'user': self.user_id
             }

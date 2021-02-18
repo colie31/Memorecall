@@ -12,7 +12,7 @@ const BookCase= ({ setTheJournal }) => {
   
    useEffect(() => {
      dispatch(getJournals(user.id));
-   }, []);
+   }, [dispatch]);
 
   return (
       <>

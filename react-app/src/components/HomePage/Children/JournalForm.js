@@ -12,30 +12,34 @@ const JournalForm = ({ method, theJournal, showModal }) => {
     const user = useSelector(state => state.session.user);
     const [ journalName, setJournalName  ] = useState(post ? "" : theJournal.name);
     const [journalColor, setJournalColor] = useState(post ? "#60d374" : theJournal.color);
+    const [ errors, setErrors ] = useState([])
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("hello from submit handler")
-        console.log(user.id)
-        console.log(journalName)
-        console.log(journalColor)
 
         const newJournal = {
-            something: "hi"
+            name: journalName,
+            color: journalColor,
         }
         
+        let data;
         if(post) {
-            dispatch(createJournal(newJournal))
+            data = await dispatch(createJournal(newJournal))
         } else {
-            dispatch(updateJournal(newJournal))
+            data = await dispatch(updateJournal(theJournal.id, newJournal))
         }
-    
+
+        console.log(data.errors)
+        if(data.errors) setErrors(data.errors)
     }
 
     return (
         <div className="create-journal__container">
          <h1>{post ? "Create" : "Update"} A Journal!</h1>
+         {errors.map((error, i) => (
+             <div style={{ color: "red" }} key={i}>{error}</div>
+         ))}
          <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="journalName">
