@@ -63,7 +63,7 @@ const journalReducer = (state = initialState, action) => {
             return newState;
         case ADD_A_JOURNAL:
             newState = Object.assign({}, state)
-            newState.journals = action.payload
+            newState.journals = [...newState.journals, action.payload]
             return newState;
         default:
             return state;
