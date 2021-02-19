@@ -1,15 +1,21 @@
 
 // actions
 const ALL_JOURNALS = "userJournals/ALL"
-const ADD_A_JOURNAL = "addAJournalToJournals/ALL"
+const ADD_A_JOURNAL = "addAJournalToJournals/ONE"
+const UPDATE_A_JOURNAL = "updateSingleJournal/ONE"
 // action creators
 const addAllUserJournals = (journals) => ({
     type: ALL_JOURNALS,
     payload: journals
 })
 
-const addJournal = (journal) => ({
+const journalAdd = (journal) => ({
     type: ADD_A_JOURNAL,
+    payload: journal
+})
+
+const journalUpdate = (journal) => ({
+    type: UPDATE_A_JOURNAL,
     payload: journal
 })
 
@@ -34,7 +40,7 @@ export const createJournal = (newJournal) => async dispatch => {
     const data = await res.json();
     if(!data.errors) {
         console.log("data", data)
-        dispatch(addJournal(data));
+        dispatch(journalAdd(data));
     }
     return data
 }
@@ -48,7 +54,7 @@ export const updateJournal = (oldJournalId, updatedJournal) => async dispatch =>
     });
     const data = await res.json();
     if (!data.errors) {
-      dispatch(getJournals(data.user));
+      dispatch(journalUpdate(data));
     }
     return data;
 }
@@ -65,6 +71,14 @@ const journalReducer = (state = initialState, action) => {
             newState = Object.assign({}, state)
             newState.journals = [...newState.journals, action.payload]
             return newState;
+        case UPDATE_A_JOURNAL:
+            newState = Object.assign({}, state)
+            let journalToUpdate = newState.journals.filter(anJournal => {
+                return anJournal.id === action.payload.id
+            })
+            console.log(newState.journals[journalToUpdate])
+            console.log(newState)
+            return newState
         default:
             return state;
     }

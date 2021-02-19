@@ -56,7 +56,7 @@ export const logout = () => async dispatch => {
 };
 
 
-export const signUp = async (username, email, password) => {
+export const signUp = (username, email, password) => async dispatch =>{
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     headers: {
@@ -68,7 +68,11 @@ export const signUp = async (username, email, password) => {
       password,
     }),
   });
-  return await response.json();
+  let data = await response.json();
+  if (!data.errors) {
+    dispatch(setUser(data));
+  }
+  return data;
 }
 
 const initialState = { user: null}
