@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { storeCurrentEntry } from "../../../store/entries";
+import React from "react";
+import { useDispatch } from "react-redux";
+// import { storeCurrentEntry } from "../../../store/entries";
 import LayoutOne from "./LayoutOne";
 import LayoutTwo from "./LayoutTwo";
 import LayoutThree from "./LayoutThree";
@@ -10,18 +10,11 @@ const Entry = ({
     body, 
     imageOne,
     imageTwo,
-    editable, 
-    setSelectedDay, 
-    index, 
-    entries }) => {
+    editable,  
+    entry }) => {
 
     const dispatch = useDispatch();
-    const entry = useSelector(state => state.entries.entry)
-
-    useEffect(() => {
-        dispatch(storeCurrentEntry(entries[index]))
-        setSelectedDay(null)
-    },[dispatch, index, entries])
+  
     
 
     let page;

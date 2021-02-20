@@ -5,7 +5,7 @@ import JournalBar from "./Children/JournalBar"
 import Entry from "./Children/Entry"
 
 import "./EntryPage.css"
-import { getAllJournalEntries } from "../../store/entries";
+import { getAllJournalEntries, leftEntry, rightEntry } from "../../store/entries";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
 
@@ -14,7 +14,7 @@ const EntryPage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const entries = useSelector(state => state.entries.entries);
-    const [currentEntryIndex, setCurrentEntryIndex] = useState(0);
+    const entry = useSelector(state => state.entries.entry)
     const [selectedDay, setSelectedDay] = useState(null);
     const [editable, setEditable] = useState(false);
     const body = useRef("");
@@ -29,13 +29,11 @@ const EntryPage = () => {
     
     
     const handleClick = (string) => {
-        const max = entries.length - 1
-    
-        if(string === "left" && currentEntryIndex > 0) {
-            setCurrentEntryIndex(currentEntryIndex-1)
+        if(string === "left") {
+            dispatch(leftEntry())
         } 
-        else if (string === "right" && currentEntryIndex < max) {
-            setCurrentEntryIndex(currentEntryIndex+1)
+        else if (string === "right") {
+            dispatch(rightEntry())
         }
     }
 
@@ -45,8 +43,6 @@ const EntryPage = () => {
         <div className="journal-bar__container">
           <JournalBar
             entries={entries}
-            setIndex={setCurrentEntryIndex}
-            currentIndex={currentEntryIndex}
             selectedDay={selectedDay}
             setSelectedDay={setSelectedDay}
             setEditable={setEditable}
@@ -64,8 +60,7 @@ const EntryPage = () => {
                 onClick={() => (editable ? null : handleClick("left"))}
               />
               <Entry
-                index={currentEntryIndex}
-                entries={entries}
+                entry={entry}
                 setSelectedDay={setSelectedDay}
                 editable={editable}
                 body={body}

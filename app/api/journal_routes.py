@@ -49,7 +49,6 @@ def update_journal(id):
 
 @journal_routes.route('/<int:id>/delete', methods=['DELETE'])
 def delete_journal(id):
-    print("Hello from delete")
     journal = Journal.query.get(id)
     db.session.delete(journal)
     db.session.commit()

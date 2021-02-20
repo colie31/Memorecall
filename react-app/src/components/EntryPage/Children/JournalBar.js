@@ -4,7 +4,7 @@ import { useParams, useHistory } from "react-router-dom"
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker, { utils } from "react-modern-calendar-datepicker";
 //actions
-import { deleteAnEntry } from "../../../store/entries"
+import { deleteAnEntry, setIndex, leftEntry } from "../../../store/entries"
 
 
 
@@ -14,11 +14,9 @@ const JournalBar = ({
   imageTwo,
   editable, 
   setEditable, 
-  currentIndex, 
   selectedDay, 
   setSelectedDay, 
-  entries, 
-  setIndex }) => {
+  entries }) => {
   
   const { id } = useParams();
   const history = useHistory();
@@ -27,15 +25,15 @@ const JournalBar = ({
   const entry =  useSelector(state => state.entries.entry);
   
   const goToFirstpage = () => {
-    return setIndex(0)
+    return dispatch(setIndex(0))
   }
 
   const goToLastPage = () => {
-    return setIndex(entries.length - 1)
+    return dispatch(setIndex(entries.length - 1))
   }
 
   const findEntryBefore = () => {
-    return currentIndex !== 0 ? setIndex(currentIndex-1) : setIndex(0)
+    return dispatch(leftEntry())
   }
 
   const deleteCurrentEntry = () => {
@@ -52,7 +50,7 @@ const JournalBar = ({
         new Date(e.year, e.month, e.day).getTime()
       );
     })
-    return foundEntryIndex >= 0 ? setIndex(foundEntryIndex) : null
+    return foundEntryIndex >= 0 ? dispatch(setIndex(foundEntryIndex)) : null
   }
 
   // save functions
