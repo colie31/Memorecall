@@ -7,8 +7,7 @@ import "./HomePage.css"
 
 
 const HomePage = () => {
-    const [theJournal, setTheJournal] = useState(null)
-
+    const theJournal = useSelector(state => state.journals.journal);
 
     return (
       <div className="home-page__body">
@@ -17,8 +16,7 @@ const HomePage = () => {
             theJournal={theJournal} />
         </div>
         <div id="home-page__bookcase">
-            <BookCase 
-            setTheJournal={setTheJournal} />
+            <BookCase />
         </div>
       </div>
     );

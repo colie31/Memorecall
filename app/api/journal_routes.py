@@ -34,7 +34,7 @@ def create_journal():
 
 
 # update a journal
-@journal_routes.route('/<int:id>/update', methods=["PUT"])
+@journal_routes.route('/<int:id>/update', methods=['PUT'])
 @login_required
 def update_journal(id):
     form = JournalForm()
@@ -46,6 +46,14 @@ def update_journal(id):
         db.session.commit()
         return journal_update.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+@journal_routes.route('/<int:id>/delete', methods=['DELETE'])
+def delete_journal(id):
+    print("Hello from delete")
+    journal = Journal.query.get(id)
+    db.session.delete(journal)
+    db.session.commit()
+    return { "message": "success"}
 
     
 

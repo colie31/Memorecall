@@ -30,8 +30,9 @@ const JournalForm = ({ method, theJournal, showModal }) => {
             data = await dispatch(updateJournal(theJournal.id, newJournal))
         }
 
-        console.log(data.errors)
-        if(data.errors) setErrors(data.errors)
+        
+        if(data.errors) return setErrors(data.errors)
+        return showModal(false)
     }
 
     return (

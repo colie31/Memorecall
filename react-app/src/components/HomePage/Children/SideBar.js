@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Modal } from "../../../context/Modal"
 import "../HomePage.css"
 
 import JournalForm from "./JournalForm"
+import { deleteJournal } from "../../../store/journals"
 
 const SideBar = ({ theJournal }) => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const [ method, setMethod ] = useState("")
@@ -45,6 +48,7 @@ const SideBar = ({ theJournal }) => {
         <button
           className="journal-button"
           disabled={!theJournal ? true : false}
+          onClick={() => dispatch(deleteJournal(theJournal.id))}
         >
           Delete {theJournal ? `"${theJournal.name}"` : null}
         </button>
