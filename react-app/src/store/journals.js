@@ -26,9 +26,9 @@ const journalDelete = (id) => ({
     payload: id
 })
 
-export const setJournal = (journal) => ({
+export const setJournal = (id) => ({
     type: SET_JOURNAL,
-    payload: journal
+    payload: id
 })
 
 // thunks
@@ -101,8 +101,12 @@ const journalReducer = (state = initialState, action) => {
             newState.journals = [...newState.journals.slice(0,index), action.payload, ...newState.journals.slice(index + 1)];
             return newState
         case SET_JOURNAL:
+            console.log("store", action.payload)
             newState = Object.assign({}, state);
-            newState.journal = action.payload;
+            const journal = newState.journals.filter(entry => {
+                return entry.id === action.payload
+            })
+            newState.journal = journal[0]
             return newState;
         case DELETE_JOURNAL:
             newState = Object.assign({}, state);

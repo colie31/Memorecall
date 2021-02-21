@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 // import { storeCurrentEntry } from "../../../store/entries";
 import LayoutOne from "./LayoutOne";
 import LayoutTwo from "./LayoutTwo";
 import LayoutThree from "./LayoutThree";
 import moment from "moment";
+import AddEntryModal from "./AddEntryModal"
+import { Modal } from "../../../context/Modal"
+// import { setJournal } from "../../../store/journals"
 
 const Entry = ({ 
     body, 
@@ -12,8 +15,6 @@ const Entry = ({
     imageTwo,
     editable,  
     entry }) => {
-
-    const dispatch = useDispatch();
   
     
 
@@ -28,18 +29,24 @@ const Entry = ({
         page = <LayoutThree editable={editable} body={body} entry={entry} imageOne={imageOne} imageTwo={imageTwo}/>;
     }
     
+    
     return (
       <div className="entry-body__page">
         {entry && (
           <>
-          <div>
-            <p>{moment.parseZone(entry.date).format("LL")}</p>
-            <p>{entry.category}</p>
-          </div>
-          <div className="entry-body__content">
-            {page}
-          </div>
+            <div>
+              <p>{moment.parseZone(entry.date).format("LL")}</p>
+              <p>{entry.category}</p>
+            </div>
+            <div className="entry-body__content">
+              {page}
+            </div>
           </>
+        )}
+        {!entry && (
+          <Modal>
+            <AddEntryModal />
+          </Modal>
         )}
       </div>
     );

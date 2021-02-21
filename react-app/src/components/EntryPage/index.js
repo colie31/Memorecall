@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import JournalBar from "./Children/JournalBar"
+import JournalBar from "./Children/EntryBar"
 import Entry from "./Children/Entry"
 
 import "./EntryPage.css"
 import { getAllJournalEntries, leftEntry, rightEntry } from "../../store/entries";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { getJournals } from "../../store/journals"
 
 
 
@@ -15,16 +16,23 @@ const EntryPage = () => {
     const dispatch = useDispatch();
     const entries = useSelector(state => state.entries.entries);
     const entry = useSelector(state => state.entries.entry)
-    const [selectedDay, setSelectedDay] = useState(null);
+    const user = useSelector(state => state.session.user)
     const [editable, setEditable] = useState(false);
+    const [selectedDay, setSelectedDay] = useState(null);
     const body = useRef("");
     const imageOne = useRef("");
     const imageTwo = useRef("")
-
+    
+    const journal = useSelector(state => state.journals.journal)
+    console.log("myJournal", journal)
 
     useEffect(() => {
-        dispatch(getAllJournalEntries(id))
+      (async () => {
+        await dispatch(getJournals(user.id))
+        await dispatch(getAllJournalEntries(id))
+      })()
     }, [dispatch])
+
 
     
     

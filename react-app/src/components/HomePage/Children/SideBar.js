@@ -12,6 +12,7 @@ const SideBar = ({ theJournal }) => {
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
   const [ method, setMethod ] = useState("")
+  console.log("journal", theJournal)
 
   const directUserToJournal = (id) => {
     history.push(`journals/${id}`);

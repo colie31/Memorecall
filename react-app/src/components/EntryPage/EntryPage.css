@@ -64,3 +64,8 @@
     margin-bottom: 40px;
     align-self: center;
 }
+
+/* modal for added entry */
+.create-entry__container {
+    padding: 50px;
+}
