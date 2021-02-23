@@ -9,7 +9,7 @@ import { getAllJournalEntries, leftEntry, rightEntry } from "../../store/entries
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { getJournals } from "../../store/journals"
 
-
+import { getCategories } from "../../store/entries";
 
 const EntryPage = () => {
     const { id } = useParams();
@@ -17,7 +17,7 @@ const EntryPage = () => {
     const entries = useSelector(state => state.entries.entries);
     const entry = useSelector(state => state.entries.entry)
     const user = useSelector(state => state.session.user)
-    const [editable, setEditable] = useState(false);
+    const editable = useSelector(state => state.entries.editable)
     const [selectedDay, setSelectedDay] = useState(null);
     const body = useRef("");
     const imageOne = useRef("");
@@ -25,11 +25,14 @@ const EntryPage = () => {
     
     const journal = useSelector(state => state.journals.journal)
     console.log("myJournal", journal)
+    const categories = useSelector((state) => state.entries.categories);
+
 
     useEffect(() => {
       (async () => {
         await dispatch(getJournals(user.id))
         await dispatch(getAllJournalEntries(id))
+        await dispatch(getCategories());
       })()
     }, [dispatch])
 
@@ -53,7 +56,6 @@ const EntryPage = () => {
             entries={entries}
             selectedDay={selectedDay}
             setSelectedDay={setSelectedDay}
-            setEditable={setEditable}
             editable={editable}
             body={body}
             imageOne={imageOne}
@@ -74,6 +76,7 @@ const EntryPage = () => {
                 body={body}
                 imageOne={imageOne}
                 imageTwo={imageTwo}
+                categories={categories}
               />
               <AiFillCaretRight
                 className="entry-body__button"

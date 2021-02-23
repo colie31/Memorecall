@@ -4,7 +4,8 @@ import { useParams, useHistory } from "react-router-dom"
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker, { utils } from "react-modern-calendar-datepicker";
 //actions
-import { deleteAnEntry, setIndex, leftEntry } from "../../../store/entries"
+import { deleteAnEntry, setIndex, leftEntry, setEditable } from "../../../store/entries"
+import EditNav from "./EditNav"
 
 
 
@@ -12,8 +13,7 @@ const JournalBar = ({
   body,
   imageOne,
   imageTwo,
-  editable, 
-  setEditable, 
+  editable,  
   selectedDay, 
   setSelectedDay, 
   entries }) => {
@@ -53,23 +53,13 @@ const JournalBar = ({
     return foundEntryIndex >= 0 ? dispatch(setIndex(foundEntryIndex)) : null
   }
 
-  // save functions
-  const saveChanges = () => {
-    console.log("journal bar", body.current, imageOne.current, imageTwo.current)
-    setEditable(false);
-  }
 
 
 
   let bar;
   if(editable) {
     bar = (
-      <>
-      <button
-      onClick={() => saveChanges()}>Save</button>
-      <button
-      onClick={() => setEditable(false)}>Cancel</button>
-      </>
+        <EditNav body={body} imageOne={imageOne} imageTwo={imageTwo} />
       )
   } else {
     bar = (
@@ -83,12 +73,12 @@ const JournalBar = ({
         <button className="journal-bar__buttons" onClick={() => goToLastPage()}>
           Last Page
         </button>
-        <button className="journal-bar__buttons" onClick={() => history.push(`/journals/${id}/new`)}>
+        <button className="journal-bar__buttons">
           Add
         </button>
         <button 
         className="journal-bar__buttons" 
-        onClick={() => setEditable(true)}>
+        onClick={() => dispatch(setEditable(true))}>
           Edit
         </button>
         <button

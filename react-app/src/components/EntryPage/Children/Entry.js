@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-// import { storeCurrentEntry } from "../../../store/entries";
+import { useDispatch, useSelector } from "react-redux";
+
 import LayoutOne from "./LayoutOne";
 import LayoutTwo from "./LayoutTwo";
 import LayoutThree from "./LayoutThree";
-import moment from "moment";
 import AddEntryModal from "./AddEntryModal"
 import { Modal } from "../../../context/Modal"
+import TopPage from "../PageComponents/TopPage";
 // import { setJournal } from "../../../store/journals"
 
 const Entry = ({ 
     body, 
     imageOne,
     imageTwo,
-    editable,  
+    editable,
+    categories,  
     entry }) => {
-  
-    
+
 
     let page;
     if(entry && entry.page_layout === 1) {
@@ -34,13 +34,11 @@ const Entry = ({
       <div className="entry-body__page">
         {entry && (
           <>
-            <div>
-              <p>{moment.parseZone(entry.date).format("LL")}</p>
-              <p>{entry.category}</p>
-            </div>
-            <div className="entry-body__content">
-              {page}
-            </div>
+            <TopPage 
+            entry={entry} 
+            editable={editable}
+            categories={categories} />
+            {page}
           </>
         )}
         {!entry && (

@@ -5,6 +5,8 @@ const DELETE_CURRENT_ENTRY = "currentlySelectedEntryDeleted/ENTRY"
 const PAGETURN_LEFT = "subtractFromIndex/INDEX"
 const PAGETURN_RIGHT = "addToIndex/INDEX"
 const SET_CURRENT_INDEX = "setEntryIndex/INDEX"
+const SET_IS_EDITABLE = "setEditable/BOOLEAN"
+const SET_CATEGORIES = "setAllCategories/CATEGORIES"
 //action creators
 export const storeAllEntries = (entries) => ({
     type: ALL_ENTRIES,
@@ -34,6 +36,16 @@ export const setIndex = (index) => ({
     payload: index
 })
 
+export const setEditable = (boolean) => ({
+    type: SET_IS_EDITABLE,
+    payload: boolean
+})
+
+export const setCategories = (categories) => ({
+    type: SET_CATEGORIES,
+    payload: categories
+})
+
 //thunks
 export const getAllJournalEntries = (journal_id) => async dispatch => {
     const res = await fetch(`/api/entries/${journal_id}`);
@@ -56,8 +68,16 @@ export const deleteAnEntry = (id) => async dispatch => {
     return data
 }
 
+export const getCategories = () => async dispatch => {
+    const res = await fetch("/api/entries/categories")
+    const data = await res.json()
+    dispatch(setCategories(data.categories))
+    console.log("from thunk", data)
+    return data;
+}
+
 //reducer
-const initialState = { "entries": null, "entry": null, "index": 0 }
+const initialState = { "entries": null, "entry": null, "index": 0, "editable": false, "categories": null }
 
 const entryReducer = (state = initialState, action) => {
     let newState;
@@ -90,6 +110,13 @@ const entryReducer = (state = initialState, action) => {
           newState.index = action.payload
           newState.entry = newState.entries[newState.index]
           return newState;
+      case SET_IS_EDITABLE:
+          newState = Object.assign({}, state);
+          newState.editable = action.payload;
+          return newState
+      case SET_CATEGORIES:
+          newState = Object.assign({}, state, { categories: action.payload})
+          return newState
       default:
         return state;
     }

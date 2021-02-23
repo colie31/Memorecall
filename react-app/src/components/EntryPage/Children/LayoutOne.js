@@ -8,12 +8,13 @@ const LayoutOne = ({
 }) => {
 
     body.current = entry.body;
-    const classImage = "single-image"
+    const classNick = "layout-one"
 
     return (
         <Body 
         editable={editable}
         body={body}
+        classNick={classNick}
      />
     )
 }

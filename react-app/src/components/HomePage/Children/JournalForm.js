@@ -9,7 +9,6 @@ import { createJournal, updateJournal } from "../../../store/journals"
 const JournalForm = ({ method, theJournal, showModal }) => {
     const post = method === "POST"
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user);
     const [ journalName, setJournalName  ] = useState(post ? "" : theJournal.name);
     const [journalColor, setJournalColor] = useState(post ? "#60d374" : theJournal.color);
     const [ errors, setErrors ] = useState([])

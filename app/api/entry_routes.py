@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from app.models import Entry, Journal, User, Image
+from app.models import Entry, Journal, User, Image, Category
 # from app.forms import JournalForm
 from .auth_routes import validation_errors_to_error_messages
 from ..models import db
@@ -35,5 +35,11 @@ def delete_entry(id):
     db.session.delete(entry)
     db.session.commit()
     return { 'message': 'Success' }
+
+# getting all available categories
+@entry_routes.route('/categories')
+def get_categories():
+    categories = Category.query.all()
+    return { 'categories': [category.to_dict() for category in categories]}
 
 # create entry
