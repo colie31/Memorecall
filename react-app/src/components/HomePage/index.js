@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import SideBar from "./Children/SideBar"
 import BookCase from "./Children/BookCase"
+import Plant from "./Children/Plant"
 import "./HomePage.css"
 
 
@@ -15,8 +16,9 @@ const HomePage = () => {
             <SideBar 
             theJournal={theJournal} />
         </div>
-        <div id="home-page__bookcase">
+        <div id="home-page__showcase">
             <BookCase />
+            <Plant />
         </div>
       </div>
     );

@@ -1,5 +1,4 @@
 import React from "react";
-import LoginForm from "../auth/LoginForm"
 import { string } from "prop-types";
 
 const Book = ({ color }) => {

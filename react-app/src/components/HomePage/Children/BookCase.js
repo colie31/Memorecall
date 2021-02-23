@@ -16,20 +16,22 @@ const BookCase= () => {
    }, [dispatch]);
 
   return (
-      <>
-      {journals && journals.map(journal => {
-        return (
-          <div
-            key={journal.id}
-            className="journal"
-            style={{ background: journal.color }}
-            onClick={() => dispatch(setJournal(journal.id))}
-          >
-          {journal.name}
-          </div>
-        );
-        })}
-      </>
+      <div className="showcase-bookcase__container">
+        <div className="showcase-bookcase__display">
+          {journals && journals.map(journal => {
+            return (
+              <div
+                key={journal.id}
+                className="journal"
+                style={{ background: journal.color }}
+                onClick={() => dispatch(setJournal(journal.id))}
+              >
+              {journal.name}
+              </div>
+            );
+            })}
+        </div>
+      </div>
   )
 };
 

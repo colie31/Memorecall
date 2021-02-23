@@ -9,8 +9,36 @@
     background: rgba(217, 218, 176, .3)
 }
 
-#home-page__bookcase {
+#home-page__showcase {
     width: 100%;
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr); */
+    /* background-image: url('../../pics/Bookshelves-Empty.svg'); */
+    /* z-index: ; */
+}
+
+.showcase-bookcase__container {
+    height: 800px;
+    width: 800px;
+    margin-top: 20px;
+    margin-left: 200px;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    position: absolute;
+    background-image: url('../../pics/Bookshelves-Empty.svg');
+}
+
+.plant-image > * {
+    height: 500px;
+    margin-top: 300px;
+    margin-left: 870px;
+    /* width: 200px; */
+}
+
+.showcase-bookcase__display {
+    display: flex;
+    flex-direction: row;
 }
 
 .side-bar__container {
