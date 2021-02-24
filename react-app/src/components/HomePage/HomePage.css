@@ -1,7 +1,12 @@
 .home-page__body {
     grid-area: body;
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    /* grid-template-rows: auto 1fr auto; */
+    grid-template-areas: "side body body"
 }
 
 #home-page__sidebar {
@@ -26,6 +31,7 @@
     background-repeat: no-repeat;
     /* background-position: center; */
     position: absolute;
+    grid-area: body;
     background-image: url('../../pics/Bookshelves-Empty.svg');
 }
 
@@ -55,7 +61,28 @@
     margin-bottom: 15px;
 }
 
+/* .showcase-bookcase__display > *:hover {
+    border: solid 2px red;
+} */
+
+div[data-descr]:hover::after {
+    content: attr(data-descr);
+    position: absolute;
+    left: 0;
+    top: 24px;
+    min-width: 200px;
+    border: 1px #aaaaaa solid;
+    border-radius: 10px;
+    background-color: #ffffcc;
+    padding: 12px;
+    color: #000000;
+    font-size: 14px;
+    z-index: 1;
+}
+
 .side-bar__container {
+    /* position: absolute; */
+    grid-area: side;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
