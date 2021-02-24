@@ -36,9 +36,23 @@
     /* width: 200px; */
 }
 
-.showcase-bookcase__display {
+.showcase-bookcase__container > * {
     display: flex;
     flex-direction: row;
+    /* height: 800px; */
+    /* width: 800px; */
+    width: 500px;
+    height: 720px;
+    margin-top: 25px;
+    margin-left: 167px;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* height: 100vh; */
+    align-content: flex-start;
+}
+
+.showcase-bookcase__display > * {
+    margin-bottom: 15px;
 }
 
 .side-bar__container {

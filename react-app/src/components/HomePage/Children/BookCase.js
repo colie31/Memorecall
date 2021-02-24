@@ -1,6 +1,7 @@
 import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getJournals, setJournal } from "../../../store/journals";
+import Journal from "../../../pics/Journal"
 
 
 const BookCase= () => {
@@ -20,14 +21,9 @@ const BookCase= () => {
         <div className="showcase-bookcase__display">
           {journals && journals.map(journal => {
             return (
-              <div
-                key={journal.id}
-                className="journal"
-                style={{ background: journal.color }}
-                onClick={() => dispatch(setJournal(journal.id))}
-              >
-              {journal.name}
-              </div>
+            
+                <Journal key={journal.id} journal={journal} dispatch={dispatch} func={setJournal} />
+            
             );
             })}
         </div>
@@ -36,3 +32,21 @@ const BookCase= () => {
 };
 
 export default BookCase;
+
+
+
+
+
+
+// {journals && journals.map(journal => {
+//             return (
+//               <div
+//                 key={journal.id}
+//                 className="journal"
+//                 style={{ background: journal.color }}
+//                 onClick={() => dispatch(setJournal(journal.id))}
+//               >
+//               {journal.name}
+//               </div>
+//             );
+//             })}
