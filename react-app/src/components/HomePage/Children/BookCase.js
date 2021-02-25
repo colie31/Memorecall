@@ -21,7 +21,7 @@ const BookCase= () => {
         <div className="showcase-bookcase__display">
           {journals && journals.map(journal => {
             return (
-              <div data-descr={journal.name}>
+              <div data-descr={journal.name} className="bounce-7">
                 <Journal
                   key={journal.id}
                   journal={journal}

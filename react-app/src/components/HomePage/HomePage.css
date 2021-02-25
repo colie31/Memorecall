@@ -61,15 +61,15 @@
     margin-bottom: 15px;
 }
 
-/* .showcase-bookcase__display > *:hover {
-    border: solid 2px red;
-} */
+.showcase-bookcase__display > *:hover {
+    position: relative;
+}
 
 div[data-descr]:hover::after {
     content: attr(data-descr);
     position: absolute;
-    left: 0;
-    top: 24px;
+    left: 46px;
+    top: 0px;
     min-width: 200px;
     border: 1px #aaaaaa solid;
     border-radius: 10px;
