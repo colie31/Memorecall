@@ -14,7 +14,7 @@ const Image = ({ editable, imageRef, imageClass }) => {
 
   return (
     <div className={`entry-image__${imageClass}`}>
-      <img className={imageClass} src={image} alt=""></img>
+      <img className={imageClass} src={imageRef.current} alt=""></img>
       {editable && <UploadButton singleImage={imageClass} imageRef={imageRef} image={image} setImage={setImage} />}
     </div>
   );

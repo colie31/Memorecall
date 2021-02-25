@@ -7,6 +7,7 @@ const PAGETURN_RIGHT = "addToIndex/INDEX"
 const SET_CURRENT_INDEX = "setEntryIndex/INDEX"
 const SET_IS_EDITABLE = "setEditable/BOOLEAN"
 const SET_CATEGORIES = "setAllCategories/CATEGORIES"
+const RESET = "resetCurrentEntry/Entry"
 //action creators
 export const storeAllEntries = (entries) => ({
     type: ALL_ENTRIES,
@@ -44,6 +45,10 @@ export const setEditable = (boolean) => ({
 export const setCategories = (categories) => ({
     type: SET_CATEGORIES,
     payload: categories
+})
+
+export const reset = () => ({
+    type: RESET
 })
 
 //thunks
@@ -117,6 +122,10 @@ const entryReducer = (state = initialState, action) => {
       case SET_CATEGORIES:
           newState = Object.assign({}, state, { categories: action.payload})
           return newState
+      case RESET:
+          newState = Object.assign({}, state)
+          newState.entry = newState.entries[newState.index];
+          return newState;
       default:
         return state;
     }
