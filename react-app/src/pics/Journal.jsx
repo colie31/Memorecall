@@ -3,7 +3,7 @@ import React from "react";
 const Journal  = ({ journal, func, dispatch, setJournal }) => {
   return (
     <svg
-      width="45px"
+      width="35px"
       height="130px"
       viewBox="0 0 210 600"
       version="1.1"
@@ -29,7 +29,7 @@ const Journal  = ({ journal, func, dispatch, setJournal }) => {
           x="0.5"
           y="0.5"
           width="209"
-          height="599"
+          height="650"
           rx="36"
           onClick={() => dispatch(func(journal.id))}
         ></rect>

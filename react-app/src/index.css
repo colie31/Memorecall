@@ -34,16 +34,17 @@ body {
 #nav-bar__ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 0;
 }
 
-#nav-bar__ul {
+#nav-bar__ul > * {
     list-style-type: none;
-    /* text-decoration: none;
-    border-bottom-style: none */
+    align-items: center;
 }
 
-#nav-bar__url-firstchild {
+#nav-bar__url-secondchild {
     margin-right: auto;
 }
 
@@ -89,5 +90,40 @@ footer {
     margin-top: 100px;
 }
 
+.logo {
+    height: 50px;
+    width: auto;
+    /* margin-top: 5px; */
+    /* border: solid 1px;
+    border-radius: 10%; */
+    margin: 5px;
+    /* padding: 5px; */
+}
 
+#title {
+    color: rgb(102, 104, 113);
+}
+
+button {
+    height: 30px;
+    border: solid 2px rgb(91, 91, 92);
+    color: rgb(102, 104, 113);
+    background-color: #ebebdb;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+button:hover {
+    box-shadow: 3px 3px #a5a584;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 3px 3px #a5a584;
+}
+
+button[disabled] {
+    background-color: grey;
+}
 
