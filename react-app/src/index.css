@@ -175,3 +175,13 @@ button[disabled] {
     border-top: solid 1px black;
     padding: 20px;
 }
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer > * {
+    margin: 20px;
+}
