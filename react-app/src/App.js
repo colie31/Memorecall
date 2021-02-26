@@ -33,11 +33,11 @@ function App() {
               <SignUpForm />
             </div>
           </Route>
-          <ProtectedRoute path="/journals/:id" exact={true}>
-            <EntryPage />
-          </ProtectedRoute>
           <ProtectedRoute path="/journals/:id/new" exact={true}>
             <NewEntryPage />
+          </ProtectedRoute>
+          <ProtectedRoute path="/journals/:id" exact={true}>
+            <EntryPage />
           </ProtectedRoute>
           <ProtectedRoute path="/" exact={true}>
             <HomePage className="home-page__container" />

@@ -18,6 +18,7 @@ const NewEntryPage = () => {
     const [ imageOne, setImageOne] = useState("")
     const [ pageLayout, setPageLayout ] = useState(1)
     const [ category, setCategory ] = useState("")
+    const [ errors, setErrors] = useState("")
     const newBody = useRef("");
 
     const entries = useSelector((state) => state.entries.entries);
@@ -29,7 +30,7 @@ const NewEntryPage = () => {
         await dispatch(getCategories());
       })();
     }, [dispatch]);
-
+    
 
     return (
       <div className="entry-page__container">
@@ -40,12 +41,16 @@ const NewEntryPage = () => {
             body={newBody}
             imageOne={imageOne}
             category={category}
+            pageLayout={pageLayout}
+            setPageLayout={setPageLayout}
+            setErrors={setErrors}
           />
         </div>
         <div className="entry-body__container">
           {entries && (
             <>
               <NewEntry
+                errors={errors}
                 pageLayout={pageLayout}
                 setPageLayout={setPageLayout}
                 editable={editable}

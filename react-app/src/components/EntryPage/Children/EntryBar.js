@@ -16,6 +16,9 @@ const EntryBar = ({
   editable,  
   selectedDay, 
   setSelectedDay, 
+  category,
+  setPageLayout,
+  pageLayout,
   entries }) => {
   
   const { id } = useParams();
@@ -98,7 +101,13 @@ const EntryBar = ({
   let bar;
   if(editable) {
     bar = (
-        <EditNav body={body} imageOne={imageOne} imageTwo={imageTwo} />
+        <EditNav 
+        category={category} 
+        body={body} 
+        imageOne={imageOne} 
+        imageTwo={imageTwo} 
+        pageLayout={pageLayout}
+        setPageLayout={setPageLayout}/>
       )
   } else {
     bar = (
@@ -112,7 +121,9 @@ const EntryBar = ({
         <button className="journal-bar__buttons" onClick={() => goToLastPage()}>
           Last Page
         </button>
-        <button className="journal-bar__buttons">
+        <button 
+        className="journal-bar__buttons"
+        onClick={() => history.push(`/journals/${id}/new`)}>
           Add
         </button>
         <button 

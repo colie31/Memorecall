@@ -37,10 +37,6 @@ const Entry = ({
           />
         );
     }
-    // } else if (entry && entry.page_layout === 3) {
-    //     body.current = entry.body;
-    //     page = <LayoutThree editable={editable} body={body} entry={entry} imageOne={imageOne} imageTwo={imageTwo}/>;
-    // }
     
     
     

@@ -23,6 +23,7 @@ const DropDown = ({ category, setCategory, categories }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
+    console.log(category)
     setCategory(event.target.value);
   };
 

@@ -14,10 +14,12 @@ const NewEntry = ({
     setImageOne,
     categories,
     category,
-    setCategory
+    setCategory,
+    errors,
 }) => {
 
 
+    console.log("errors", errors)
     let page;
     if (pageLayout === 1) {
       page = <LayoutOne editable={editable} body={body} />;
@@ -35,15 +37,18 @@ const NewEntry = ({
 
     return (
       <div className="entry-body__page">
-          <>
-            <TopPage
-              editable={editable}
-              categories={categories}
-              category={category}
-              setCategory={setCategory}
-            />
-            {page}
-          </>
+        <>
+          <TopPage
+            editable={editable}
+            categories={categories}
+            category={category}
+            setCategory={setCategory}
+          />
+            {errors && errors.map((error, i) => (
+                <div key={i}>{error}</div>
+            ))}
+          {page}
+        </>
       </div>
     );
 }

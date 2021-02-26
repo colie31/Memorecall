@@ -1,8 +1,11 @@
 from flask import Blueprint, request
 from app.models import Entry, Journal, User, Image, Category
 # from app.forms import JournalForm
+from flask_login import current_user
 from .auth_routes import validation_errors_to_error_messages
 from ..models import db
+from app.forms import EntryForm
+import datetime
 # for images
 # from werkzeug.utils import secure_filename
 # from ..helpers import *
@@ -43,3 +46,38 @@ def get_categories():
     return { 'categories': [category.to_dict() for category in categories]}
 
 # create entry
+@entry_routes.route('/new', methods=['POST'])
+def created_entry():
+    form = EntryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        # content = request.json
+        new_entry = Entry(
+            body = form.data['body'],
+            date = datetime.datetime.now(),
+            page_layout = form.data['page_layout'],
+            user = current_user,
+            journal_id = form.data['journal_id'],
+            category_id = form.data['category_id']
+        )
+        db.session.add(new_entry)
+        db.session.commit()
+        return new_entry.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+# update entry
+@entry_routes.route('/<int:id>/update', methods=['PUT'])
+def update_entry(id):
+    form = EntryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        # content = request.json
+        entry_update = Entry.query.get(id),
+        entry_update.body = form.data['body'],
+        entry_update.category_id = form.data['category_id']
+
+        db.session.add(entry_update)
+        db.session.commit()
+        return entry_update.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}

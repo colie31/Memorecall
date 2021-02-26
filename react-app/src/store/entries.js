@@ -8,6 +8,8 @@ const SET_CURRENT_INDEX = "setEntryIndex/INDEX"
 const SET_IS_EDITABLE = "setEditable/BOOLEAN"
 const SET_CATEGORIES = "setAllCategories/CATEGORIES"
 const RESET = "resetCurrentEntry/Entry"
+const ADD_ENTRY = "addAnEntry/ENTRY"
+const UPDATE_ENTRY = "updateAnEntry/ENTRY"
 //action creators
 export const storeAllEntries = (entries) => ({
     type: ALL_ENTRIES,
@@ -51,6 +53,15 @@ export const reset = () => ({
     type: RESET
 })
 
+const addCreatedEntry = (newEntry) => ({
+    type: ADD_ENTRY,
+    payload: newEntry,
+})
+
+const entryUpdate = (updatedEntry) => ({
+    type: updatedEntry,
+    payload: updatedEntry
+}) 
 //thunks
 export const getAllJournalEntries = (journal_id) => async dispatch => {
     const res = await fetch(`/api/entries/${journal_id}`);
@@ -81,6 +92,36 @@ export const getCategories = () => async dispatch => {
     return data;
 }
 
+export const addEntry = (createdEntry) => async dispatch => {
+    const res = await fetch("/api/entries/new", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(createdEntry)
+    })
+    const data = await res.json();
+    console.log("from addEntry", data)
+    if(!data.errors) {
+        dispatch(addCreatedEntry(data))
+    }
+    return data;
+}
+
+export const updateEntry = (entryToUpdate, id) => async dispatch => {
+    const res = await fetch(`/api/entries/${id}/update`, {
+        method: "PUT",
+        headers: { 
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entryToUpdate)
+    })
+    const data = await res.json()
+    if(!data.errors) {
+        dispatch(entryUpdate(data));
+    }
+    return data
+}
 //reducer
 const initialState = { "entries": null, "entry": null, "index": 0, "editable": false, "categories": null }
 
@@ -126,6 +167,10 @@ const entryReducer = (state = initialState, action) => {
           newState = Object.assign({}, state)
           newState.entry = newState.entries[newState.index];
           return newState;
+      case ADD_ENTRY:
+          newState = Object.assign({}, state)
+            newState.entries = [...newState.entries, action.payload]
+            return newState;
       default:
         return state;
     }

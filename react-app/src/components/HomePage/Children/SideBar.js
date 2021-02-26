@@ -6,8 +6,9 @@ import "../HomePage.css"
 
 import JournalForm from "./JournalForm"
 import { deleteJournal } from "../../../store/journals"
+import { useRadioGroup } from "@material-ui/core";
 
-const SideBar = ({ theJournal }) => {
+const SideBar = ({ theJournal, user }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
@@ -30,6 +31,7 @@ const SideBar = ({ theJournal }) => {
 
     return (
       <div className="side-bar__container">
+        <h1>Welcome {user.username}</h1>
         <button>Time-Line</button>
         <button onClick={() => handlePostSettings()}>Add A Journal</button>
         <button

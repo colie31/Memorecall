@@ -5,7 +5,7 @@ import DropDown from "./DropDown"
 const TopPage = ({ entry, editable, categories, category, setCategory }) => {
     if(entry) setCategory(entry.category_id)
 
-    console.log(category)
+    // console.log(category)
     let display;
     if(editable) {
         display = <DropDown 
