@@ -172,6 +172,6 @@ button[disabled] {
 
 .entry-body__content {
     height: 100%;
-    border: solid 1px black;
+    border-top: solid 1px black;
     padding: 20px;
 }
