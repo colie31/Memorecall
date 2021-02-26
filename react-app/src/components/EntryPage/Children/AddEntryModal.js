@@ -1,13 +1,14 @@
 import React from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import "../EntryPage.css"
 
 
 const AddEntryModal = () => {
+    const { id } = useParams()
     const history = useHistory();
 
     const handleAddedEntry = () => {
-        console.log("hello from function")
+        history.push(`/journals/${id}/new`);
     };
 
     return (

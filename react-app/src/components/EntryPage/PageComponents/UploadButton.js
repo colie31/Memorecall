@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UploadButtons({ singleImage, imageRef, image, setImage }) {
+export default function UploadButtons({ singleImage, setImageOne }) {
   const classes = useStyles();
 
   const handleChange = (e) => {
-    imageRef.current = e.target.value;
-    setImage(e.target.value);
+    // imageRef.current = e.target.value;
+    setImageOne(e.target.value);
     // console.log("button", imageRef.current);
   };
 

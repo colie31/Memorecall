@@ -12,6 +12,10 @@
     height: 60px;
 }
 
+.journal-bar__container > * {
+    width: 150px
+}
+
 .entry-body__container {
     margin: 0;
     display: flex;

@@ -66,13 +66,13 @@ footer {
     width: 100%;
 }
 
-#login-form__container {
+/* #login-form__container {
     border: solid black 2px;
     display: flex;
     flex-direction: column;
     height: 200px;
     width: 200px;
-}
+} */
 
 .book-container {
     display: flex;
@@ -87,8 +87,51 @@ footer {
 }
 
 .book-container > * {
-    margin-top: 100px;
+    margin-top: 70px;
+    /* border: solid black 2px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    width: 350px;
 }
+
+
+#login-form__container > * {
+    margin: 10px;
+    margin-left: 90px;
+}
+
+#login-form__container > h1 {
+    margin-left: 120px;
+}
+
+#login-form__container > button {
+    margin-top: auto;
+    margin-left: 70px;
+    width: 200px;
+}
+
+
+#signup-form__container > * {
+    margin: 10px;
+    margin-left: 90px;
+}
+
+#signup-form__container > h1 {
+    margin-left: 60px;
+}
+
+#signup-form__container > button {
+    margin-top: auto;
+    margin-left: 70px;
+    width: 200px;
+}
+
+div > label {
+    margin-right: 100%;
+}
+
 
 .logo {
     height: 50px;
@@ -127,3 +170,8 @@ button[disabled] {
     background-color: grey;
 }
 
+.entry-body__content {
+    height: 100%;
+    border: solid 1px black;
+    padding: 20px;
+}

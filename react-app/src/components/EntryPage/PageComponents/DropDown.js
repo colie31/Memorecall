@@ -47,9 +47,9 @@ const DropDown = ({ category, setCategory, categories }) => {
           value={category}
           onChange={handleChange}
         >
-          {categories.map(theCategory => 
+          {categories && categories.map(theCategory => 
             (
-                <MenuItem value={theCategory.id}>{theCategory.name}</MenuItem>
+                <MenuItem key={theCategory.id} value={theCategory.id}>{theCategory.name}</MenuItem>
             ))}
         </Select>
       </FormControl>

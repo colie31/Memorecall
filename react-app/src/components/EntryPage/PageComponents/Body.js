@@ -9,7 +9,8 @@ const Body = ({ editable, body, classNick }) => {
 
     return (
     <div className={`entry-body__${classNick}`}>
-        <ContentEditable 
+        <ContentEditable
+        className="entry-body__content"
         html={body.current}
         onChange={handleChange}
         disabled={!editable}

@@ -15,7 +15,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #modal-content {
@@ -29,6 +29,7 @@
   width: 600px; */
   height: auto;
   width: auto;
-  padding: 20px 150px
+  padding: 20px 150px;
+  /* padding: solid 2px black; */
 }
 

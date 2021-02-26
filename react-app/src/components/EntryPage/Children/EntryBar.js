@@ -9,7 +9,7 @@ import EditNav from "./EditNav"
 
 
 
-const JournalBar = ({
+const EntryBar = ({
   body,
   imageOne,
   imageTwo,
@@ -131,7 +131,7 @@ const JournalBar = ({
           onChange={setCurrentEntry}
           // minimumDate={entries[0].date_object}
           maximumDate={utils().getToday()}
-          inputPlaceholder="search entries by date..."
+          inputPlaceholder="search by date..."
         />
       </>
     );
@@ -139,9 +139,9 @@ const JournalBar = ({
 
   return (
     <>
-      {entry && bar}
+      {bar}
     </>
   );
 };
 
-export default JournalBar;
+export default EntryBar;

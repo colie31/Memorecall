@@ -2,13 +2,15 @@ import React, { useState }  from "react";
 import moment from "moment";
 import DropDown from "./DropDown"
 
-const TopPage = ({ entry, editable, categories }) => {
-    const [category, setCategory] = useState(entry.category);
+const TopPage = ({ entry, editable, categories, category, setCategory }) => {
+    if(entry) setCategory(entry.category_id)
+
+    console.log(category)
     let display;
     if(editable) {
         display = <DropDown 
         category={category}
-        setCategory={setCategory}
+        setCategory={category => setCategory(category)}
         categories={categories}
         />
     } else {
@@ -17,7 +19,7 @@ const TopPage = ({ entry, editable, categories }) => {
 
     return (
       <div className="entry-date">
-        <p>{moment.parseZone(entry.date).format("LL")}</p>
+        {entry && <p>{moment.parseZone(entry.date).format("LL")}</p>}
         {display}
       </div>
     );

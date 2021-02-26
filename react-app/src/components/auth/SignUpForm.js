@@ -44,9 +44,11 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <>
+    <form id="signup-form__container" onSubmit={onSignUp}>
+      <h1>Sign Up Today!</h1>
       {errors.map((error, i) => {
-        return <div key={i}>{error}</div>
+        return <div key={i}>{error}</div>;
       })}
       <div>
         <label>User Name</label>
@@ -87,6 +89,7 @@ const SignUpForm = () => {
       </div>
       <button type="submit">Sign Up</button>
     </form>
+    </>
   );
 };
 

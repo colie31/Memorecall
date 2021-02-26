@@ -12,22 +12,36 @@ import TopPage from "../PageComponents/TopPage";
 const Entry = ({ 
     body, 
     imageOne,
-    imageTwo,
+    setImageOne,
     editable,
-    categories,  
-    entry }) => {
+    categories,
+    category,
+    setCategory,  
+    // entry 
+  }) => {
 
+    const entry = useSelector((state) => state.entries.entry);
 
     let page;
     if(entry && entry.page_layout === 1) {
         page = <LayoutOne editable={editable} body={body} entry={entry}/>
     } else if (entry && entry.page_layout === 2) {
         body.current = entry.body;
-        page = <LayoutTwo editable={editable} body={body} entry={entry} imageOne={imageOne}/>;
-    } else if (entry && entry.page_layout === 3) {
-        body.current = entry.body;
-        page = <LayoutThree editable={editable} body={body} entry={entry} imageOne={imageOne} imageTwo={imageTwo}/>;
+        page = (
+          <LayoutTwo
+            editable={editable}
+            body={body}
+            entry={entry}
+            imageOne={imageOne}
+            setImageOne={(image) => setImageOne(image)}
+          />
+        );
     }
+    // } else if (entry && entry.page_layout === 3) {
+    //     body.current = entry.body;
+    //     page = <LayoutThree editable={editable} body={body} entry={entry} imageOne={imageOne} imageTwo={imageTwo}/>;
+    // }
+    
     
     
     return (
@@ -37,7 +51,9 @@ const Entry = ({
             <TopPage 
             entry={entry} 
             editable={editable}
-            categories={categories} />
+            categories={categories}
+            setCategory={(category) => setCategory(category)}
+            category={category} />
             {page}
           </>
         )}

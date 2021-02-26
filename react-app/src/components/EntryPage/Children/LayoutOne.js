@@ -7,7 +7,7 @@ const LayoutOne = ({
     entry
 }) => {
 
-    body.current = entry.body;
+    if(entry) body.current = entry.body;
     const classNick = "layout-one"
 
     return (

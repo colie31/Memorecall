@@ -10,8 +10,8 @@ const EditNav = ({ body, imageOne, imageTwo }) => {
     console.log(
       "journal bar",
       body.current,
-      imageOne.current,
-      imageTwo.current
+      imageOne,
+      imageTwo
     );
     dispatch(setEditable(false));
   };

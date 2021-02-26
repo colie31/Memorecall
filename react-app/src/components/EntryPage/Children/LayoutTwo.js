@@ -6,17 +6,20 @@ const LayoutTwo = ({
     entry, 
     body, 
     editable, 
-    imageOne 
+    imageOne,
+    setImageOne
 }) => {
 
-  body.current = entry.body;
+  if(entry) {
+   body.current = entry.body;
+   setImageOne(entry.images[0].url);
+  }
   const imageClass = "single-image";
   const classNick = "layout-two"
-  imageOne.current = entry.images[0].url
 
   return (
     <>
-      <Image editable={editable} imageRef={imageOne} imageClass={imageClass} />
+      <Image editable={editable} imageOne={imageOne} setImageOne={setImageOne} imageClass={imageClass} />
       <Body editable={editable} body={body} classNick={classNick} />
     </>
   );

@@ -1,27 +1,32 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import JournalBar from "./Children/EntryBar"
+import EntryBar from "./Children/EntryBar"
 import Entry from "./Children/Entry"
 
 import "./EntryPage.css"
-import { getAllJournalEntries, leftEntry, rightEntry } from "../../store/entries";
+import {
+  getCategories,
+  getAllJournalEntries,
+  leftEntry,
+  rightEntry,
+} from "../../store/entries";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { getJournals } from "../../store/journals"
 
-import { getCategories } from "../../store/entries";
 
 const EntryPage = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const entries = useSelector(state => state.entries.entries);
-    const entry = useSelector(state => state.entries.entry)
     const user = useSelector(state => state.session.user)
     const editable = useSelector(state => state.entries.editable)
     const [selectedDay, setSelectedDay] = useState(null);
+    const [imageOne, setImageOne] = useState("");
+    const [pageLayout, setPageLayout] = useState(1);
+    const [category, setCategory] = useState("")
     const body = useRef("");
-    const imageOne = useRef("");
-    const imageTwo = useRef("")
+    // const imageTwo = useRef("")
     
     const journal = useSelector(state => state.journals.journal)
     console.log("myJournal", journal)
@@ -52,14 +57,14 @@ const EntryPage = () => {
     return (
       <div className="entry-page__container">
         <div className="journal-bar__container">
-          <JournalBar
+          <EntryBar
             entries={entries}
             selectedDay={selectedDay}
             setSelectedDay={setSelectedDay}
             editable={editable}
             body={body}
             imageOne={imageOne}
-            imageTwo={imageTwo}
+            category={category}
           />
         </div>
         <div className="entry-body__container">
@@ -70,12 +75,14 @@ const EntryPage = () => {
                 onClick={() => (editable ? null : handleClick("left"))}
               />
               <Entry
-                entry={entry}
+                // entry={entry}
                 setSelectedDay={setSelectedDay}
                 editable={editable}
                 body={body}
                 imageOne={imageOne}
-                imageTwo={imageTwo}
+                setImageOne={(image) => setImageOne(image)}
+                category={category}
+                setCategory={(category) => setCategory(category)}
                 categories={categories}
               />
               <AiFillCaretRight
