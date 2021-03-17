@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { login } from "../../store/auth";
 import { useDispatch, useSelector } from "react-redux"
+import DemoLogin from "./DemoLogin"
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -34,32 +35,37 @@ const LoginForm = () => {
     <>
     <form id="login-form__container" onSubmit={onLogin}>
       <h1>Login</h1>
-      <div>
-        {errors.map((error, i) => (
-          <div key={i}>{error}</div>
-        ))}
+      <div className="inputs">
+        <div>
+          {errors.map((error, i) => (
+            <div key={i}>{error}</div>
+          ))}
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
       </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          name="email"
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-        />
+      <div className="form-buttons">
+        <DemoLogin />
+        <button type="submit">Login</button>
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={updatePassword}
-        />
-      </div>
-      <button type="submit">Login</button>
     </form>
     </>
   );

@@ -82,7 +82,7 @@ const EntryPage = () => {
                 imageOne={imageOne}
                 setImageOne={(image) => setImageOne(image)}
                 category={category}
-                setCategory={(category) => setCategory(category)}
+                setCategory={setCategory}
                 categories={categories}
               />
               <AiFillCaretRight

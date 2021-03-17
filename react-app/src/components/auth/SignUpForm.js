@@ -45,50 +45,60 @@ const SignUpForm = () => {
 
   return (
     <>
-    <form id="signup-form__container" onSubmit={onSignUp}>
-      <h1>Sign Up Today!</h1>
-      {errors.map((error, i) => {
-        return <div key={i}>{error}</div>;
-      })}
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
+      <form id="signup-form__container" onSubmit={onSignUp}>
+        <h1>Sign Up Today!</h1>
+        <div className="inputs">
+          <div>
+            {errors.map((error, i) => {
+              return <div key={i}>{error}</div>;
+            })}
+          </div>
+          <div>
+            <label>User Name</label>
+            <input
+              type="text"
+              name="username"
+              onChange={updateUsername}
+              placeholder="Username"
+              value={username}
+            ></input>
+          </div>
+          <div>
+            <label>Email</label>
+            <input
+              type="text"
+              name="email"
+              onChange={updateEmail}
+              placeholder="Email"
+              value={email}
+            ></input>
+          </div>
+          <div>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              onChange={updatePassword}
+              placeholder="Password"
+              value={password}
+            ></input>
+          </div>
+          <div>
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="repeat_password"
+              onChange={updateRepeatPassword}
+              placeholder="Confirm Password"
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+        </div>
+        <div className="form-buttons">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
     </>
   );
 };

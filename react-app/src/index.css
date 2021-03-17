@@ -97,7 +97,7 @@ footer {
 }
 
 
-#login-form__container > * {
+/* #login-form__container > * {
     margin: 10px;
     margin-left: 90px;
 }
@@ -107,26 +107,43 @@ footer {
 }
 
 #login-form__container > button {
-    margin-top: auto;
+    margin-top: 10px;
     margin-left: 70px;
     width: 200px;
+} */
+#login-form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 30px auto 90px;
 }
 
+#signup-form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 90px auto 30px;
+}
 
-#signup-form__container > * {
+.inputs > * * {
+    width: 300px;
     margin: 10px;
-    margin-left: 90px;
 }
 
-#signup-form__container > h1 {
-    margin-left: 60px;
+.form-buttons {
+    display: flex;
+    flex-direction: column;
 }
 
-#signup-form__container > button {
-    margin-top: auto;
-    margin-left: 70px;
+.form-buttons > * {
+    margin: 5px;
     width: 200px;
+    /* margin-left: 60px; */
+    margin-left: 5px;
 }
+
 
 div > label {
     margin-right: 100%;

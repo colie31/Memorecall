@@ -48,8 +48,8 @@ const Entry = ({
             entry={entry} 
             editable={editable}
             categories={categories}
-            setCategory={(category) => setCategory(category)}
-            category={category} />
+            category={category} 
+            setCategory={setCategory} />
             {page}
           </>
         )}
