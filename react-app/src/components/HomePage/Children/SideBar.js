@@ -32,7 +32,6 @@ const SideBar = ({ theJournal, user }) => {
     return (
       <div className="side-bar__container">
         <h1>Welcome {user.username}</h1>
-        <button>Time-Line</button>
         <button onClick={() => handlePostSettings()}>Add A Journal</button>
         <button
           className="journal-button"
