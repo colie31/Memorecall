@@ -126,9 +126,8 @@ footer {
     align-items: center;
 }
 
-.error-container {
-    height: 81px;
-    margin: 0;
+#login-form h1 {
+    margin-bottom: 40px;
 }
 
 #signup-form__container {

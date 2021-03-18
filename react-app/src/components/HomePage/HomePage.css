@@ -90,8 +90,12 @@ div[data-descr]:hover::after {
 
 .side-bar__container > * {
     margin: 10px;
-    height: 40px;
+    height: auto;
     border-radius: 5px;
+}
+
+.side-bar__container button {
+    height: 40px;
 }
 
 /* journal form */
