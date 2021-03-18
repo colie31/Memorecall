@@ -32,42 +32,44 @@ const LoginForm = () => {
   }
 
   return (
-    <>
-    <form id="login-form__container" onSubmit={onLogin}>
-      <h1>Login</h1>
-      <div className="inputs">
-        <div>
-          {errors.map((error, i) => (
-            <div key={i}>{error}</div>
-          ))}
+    <div id="login-form__container">
+      <form id="login-form" onSubmit={onLogin}>
+        <h1>Login</h1>
+        <div className="inputs">
+          <div className="error-container">
+            {errors.map((error, i) => (
+              <div key={i}>{error}</div>
+            ))}
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={updatePassword}
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={updateEmail}
-          />
+        <div className="form-buttons">
+          <button type="submit">Login</button>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={updatePassword}
-          />
-        </div>
-      </div>
+      </form>
       <div className="form-buttons">
         <DemoLogin />
-        <button type="submit">Login</button>
       </div>
-    </form>
-    </>
+    </div>
   );
 };
 

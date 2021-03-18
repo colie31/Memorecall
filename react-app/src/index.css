@@ -119,6 +119,18 @@ footer {
     margin: auto 30px auto 90px;
 }
 
+#login-form {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.error-container {
+    height: 81px;
+    margin: 0;
+}
+
 #signup-form__container {
     display: flex;
     flex-direction: column;
