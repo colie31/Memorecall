@@ -123,6 +123,10 @@ div[data-descr]:hover::after {
     padding: 10px;
 }
 
+.create-journal__container label {
+    margin: 0;
+}
+
 #journalName {
     width: 200px;
     height: 30px;
