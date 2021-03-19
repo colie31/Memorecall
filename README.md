@@ -1,98 +1,58 @@
-# Flask React Project
+# Memorecall
+## An application that allows a user to create and store personal journals
+------------------------------------------------
 
-This is the backend for the Flask React project.
+## Installation
 
-## Getting started
+* Install dependencies from root directory
 
-1. Clone this repository (only this branch)
+```pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt```
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+* Create a **.env** file using the following template:
 
-2. Install dependencies
+>FLASK_APP=app
+>FLASK_ENV=development
+>SECRET_KEY=((Insert your own secret key here))
+>DATABASE_URL=postgresql://((Admin Username)):((Admin Password))@((Host Address))/((Database Name))
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+* Set up a PostgreSQL database with the username, password and databse name that you used in the **.env** file.
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+* Follow this squence to go into the pipenv shell and migrate, then seed the database:
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+```pipenv shell```
 
-   ```bash
-   pipenv shell
-   ```
+```flask db upgrade```
 
-   ```bash
-   flask db upgrade
-   ```
+```flask seed all```
 
-   ```bash
-   flask seed all
-   ```
+```flask run```
 
-   ```bash
-   flask run
-   ```
+* Once you have the database set up and the flask app running, you should be able to install the react app and run it to connect to the backend. On a new terminal, change from the root directory into the **./react-app** directory and run the following:
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+```npm install```
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+* Once dependencies are installed, create a **.env** file here with the following template:
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+>REACT_APP_BASE_URL=((Host Address, such as http://localhost:5000))
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+* You should be able to run the following:
 
-## Deploy to Heroku
+```npm start```
 
-1. Create a new project on Heroku
-2. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-3. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-4. Run
+* If successful, navigating to the address in the react app **.env** file in a browser should show the welcome page!
 
-   ```bash
-   heroku login
-   ```
+-------------------------------------------
 
-5. Login to the heroku container registry
+## How to use Memorecall
 
-   ```bash
-   heroku container:login
-   ```
+Log in with by clicking `Demo Login` or **Sign Up**!
 
-6. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-7. Push your docker container to heroku from the root directory of your project.
-   This will build the dockerfile and push the image to your heroku container registry
+![Demo Login](https://readmecontent.s3.us-east-2.amazonaws.com/screen_recoding_login_demo.gif)
 
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
+Every User has there own bookcase where they will be able to add/delete/view there journals. Once you have created your own personalized journal, You can start creating entries!!
 
-8. Release your docker container to heroku
+![creating a journal](https://readmecontent.s3.us-east-2.amazonaws.com/screen_create_journal.gif)
 
-   ```bash
-   heroku container:release web -a {NAME_OF_HEROKU_APP}
-   ```
+Now lets create some entries! Select a journal and view your journal to add entries by clicking `add` on the journal nav bar. App uses `react-modern-calendar-datepicker` github link ![calendar datepicker](https://github.com/Kiarash-Z/react-modern-calendar-datepicker) so you can find your journal entries easier, so make as many as you want!
 
-9. set up your database:
-
-   ```bash
-   heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-   heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-   ```
-
-10. Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-11. profit
+![Memorecall](https://linkedincontent.s3.us-east-2.amazonaws.com/Screen_recording_memorecall.gif)
