@@ -47,12 +47,12 @@
 
 Log in with by clicking `Demo Login` or **Sign Up**!
 
-![Demo Login](https://imgur.com/FpT2cBS)
+![Demo Login](https://readmecontent.s3.us-east-2.amazonaws.com/brainbust_demo_login.png)
 
 Every User has there own bookcase where they will be able to add/delete/view there journals. Once you have created your own personalized journal, You can start creating entries!!
 
-![creating a journal](https://imgur.com/RM0oF3t)
+![Creating a journal](https://readmecontent.s3.us-east-2.amazonaws.com/new_journal.png)
 
-Now lets create some entries! Select a journal and view your journal to add entries by clicking `add` on the journal nav bar. App uses `react-modern-calendar-datepicker` [github link](https://github.com/Kiarash-Z/react-modern-calendar-datepicker) - so you can find your journal entries easier, so make as many as you want!
+Now lets create some entries! Select a journal and view your journal to add entries by clicking `add` on the journal nav bar. App uses `react-modern-calendar-datepicker` library, more info @ [github link](https://github.com/Kiarash-Z/react-modern-calendar-datepicker) - so you can find your journal entries easier, so make as many as you want!
 
-![Memorecall](https://linkedincontent.s3.us-east-2.amazonaws.com/Screen_recording_memorecall.gif)
+![Memorecall App](https://readmecontent.s3.us-east-2.amazonaws.com/journal_entry.png)
