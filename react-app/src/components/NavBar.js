@@ -4,7 +4,7 @@ import LogoutButton from './auth/LogoutButton';
 
 import logo from  '../pics/journal-logo.png'
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   return (
     <nav id="nav-bar__container">
       <ul id="nav-bar__ul">
@@ -17,7 +17,7 @@ const NavBar = () => {
           <h1 id="title">Memorecall</h1>
         </li>
         <li>
-          <LogoutButton />
+          {user && <LogoutButton />}
         </li>
       </ul>
     </nav>

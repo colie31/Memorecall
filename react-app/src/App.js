@@ -15,6 +15,7 @@ import NewEntryPage from "./components/NewEntryPage"
 
 function App() {
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar isLoaded={loaded} />
+      <NavBar user={user} />
       {loaded && (
         <Switch>
           <Route path="/login_signup" exact={true}>
