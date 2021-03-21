@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 .node_modules
 Instructions
+node_modules/
