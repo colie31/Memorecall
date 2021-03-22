@@ -99,6 +99,14 @@ div[data-descr]:hover::after {
     height: 40px;
 }
 
+.side-bar__container img {
+    height: 20px;
+    width: 20px;
+    /* float: left; */
+    position: absolute;
+    left: 25px;
+}
+
 /* journal form */
 
 .create-journal__container {
