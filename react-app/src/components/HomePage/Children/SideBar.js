@@ -6,6 +6,8 @@ import "../HomePage.css"
 
 import JournalForm from "./JournalForm"
 import { deleteJournal } from "../../../store/journals"
+import edit from "../../../pics/edit-icon.png"
+import view from "../../../pics/journal-icon.png"
 
 const SideBar = ({ theJournal, user }) => {
   const dispatch = useDispatch();
@@ -37,6 +39,7 @@ const SideBar = ({ theJournal, user }) => {
           disabled={!theJournal ? true : false}
           onClick={() => directUserToJournal(theJournal.id)}
         >
+          <img src={view} alt="" />
           View {theJournal ? `"${theJournal.name}"` : null}
         </button>
         <button
@@ -44,6 +47,7 @@ const SideBar = ({ theJournal, user }) => {
           disabled={!theJournal ? true : false}
           onClick={() => handleUpdateSettings()}
         >
+          <img src={edit} alt="" />
           Edit {theJournal ? `"${theJournal.name}"` : null}
         </button>
         <button
