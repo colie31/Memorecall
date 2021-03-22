@@ -68,11 +68,12 @@
 div[data-descr]:hover::after {
     content: attr(data-descr);
     position: absolute;
-    left: 46px;
+    left: 28px;
     top: 0px;
-    min-width: 200px;
+    min-width: 170px;
     border: 1px #aaaaaa solid;
     border-radius: 10px;
+    border-bottom-left-radius: 0;
     background-color: #ffffcc;
     padding: 12px;
     color: #000000;
