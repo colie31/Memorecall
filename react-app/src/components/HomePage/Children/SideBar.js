@@ -6,7 +6,6 @@ import "../HomePage.css"
 
 import JournalForm from "./JournalForm"
 import { deleteJournal } from "../../../store/journals"
-import { useRadioGroup } from "@material-ui/core";
 
 const SideBar = ({ theJournal, user }) => {
   const dispatch = useDispatch();
@@ -34,21 +33,21 @@ const SideBar = ({ theJournal, user }) => {
         <h1>Welcome {user.username}</h1>
         <button onClick={() => handlePostSettings()}>Add A Journal</button>
         <button
-          className="journal-button"
+          className="journal-button view"
           disabled={!theJournal ? true : false}
           onClick={() => directUserToJournal(theJournal.id)}
         >
           View {theJournal ? `"${theJournal.name}"` : null}
         </button>
         <button
-          className="journal-button"
+          className="journal-button edit"
           disabled={!theJournal ? true : false}
           onClick={() => handleUpdateSettings()}
         >
           Edit {theJournal ? `"${theJournal.name}"` : null}
         </button>
         <button
-          className="journal-button"
+          className="journal-button delete"
           disabled={!theJournal ? true : false}
           onClick={() => dispatch(deleteJournal(theJournal.id))}
         >
