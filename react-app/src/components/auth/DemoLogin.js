@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { login } from "../../store/auth"
 import { useDispatch } from "react-redux"
 
+
 const DemoLogin = () => {
     const dispatch = useDispatch();
+
 
     const demoUser = {
         username: 'Demo', 
@@ -11,10 +13,14 @@ const DemoLogin = () => {
         password: 'password'
     }
 
+    const handleDemoLogin = async () => {
+       dispatch(login(demoUser.email, demoUser.password))
+    }
+
     return (
         <button
         onClick={
-            () => dispatch(login(demoUser.email, demoUser.password))
+           () =>{ handleDemoLogin() }
         }>Demo Login</button>
     )
 }

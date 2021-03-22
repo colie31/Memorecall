@@ -14,6 +14,7 @@ const BookCase= () => {
   
    useEffect(() => {
      dispatch(getJournals(user.id));
+     console.log('this useEffect')
    }, [dispatch]);
 
   return (
