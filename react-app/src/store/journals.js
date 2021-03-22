@@ -5,6 +5,7 @@ const ADD_A_JOURNAL = "addAJournalToJournals/ONE"
 const UPDATE_A_JOURNAL = "updateSingleJournal/ONE"
 const SET_JOURNAL = "setSelectedJournal/ONE"
 const DELETE_JOURNAL = "deleteSingleJournal/ONE"
+const RESET_JOURNAL = "resetingSingleJournal/ONE"
 // action creators
 const addAllUserJournals = (journals) => ({
     type: ALL_JOURNALS,
@@ -29,6 +30,11 @@ const journalDelete = (id) => ({
 export const setJournal = (id) => ({
     type: SET_JOURNAL,
     payload: id
+})
+
+export const reSetJournal = () => ({
+    type: RESET_JOURNAL,
+    payload: null
 })
 
 // thunks
@@ -101,7 +107,6 @@ const journalReducer = (state = initialState, action) => {
             newState.journals = [...newState.journals.slice(0,index), action.payload, ...newState.journals.slice(index + 1)];
             return newState
         case SET_JOURNAL:
-            console.log("store", action.payload)
             newState = Object.assign({}, state);
             const journal = newState.journals.filter(entry => {
                 return entry.id === action.payload
@@ -119,6 +124,10 @@ const journalReducer = (state = initialState, action) => {
             ];
             newState.journal = null;
             return newState;
+        case RESET_JOURNAL:
+            newState = Object.assign({}, state)
+            newState.journal = action.payload
+            return newState
         default:
             return state;
     }

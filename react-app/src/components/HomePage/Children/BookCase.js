@@ -1,6 +1,6 @@
 import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getJournals, setJournal } from "../../../store/journals";
+import { getJournals, setJournal, reSetJournal } from "../../../store/journals";
 import Journal from "../../../pics/Journal"
 
 
@@ -14,6 +14,7 @@ const BookCase= () => {
   
    useEffect(() => {
      dispatch(getJournals(user.id));
+     dispatch(reSetJournal());
      console.log('this useEffect')
    }, [dispatch]);
 
