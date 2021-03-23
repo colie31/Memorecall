@@ -97,6 +97,7 @@ div[data-descr]:hover::after {
 
 .side-bar__container button {
     height: 40px;
+    position: relative;
 }
 
 .side-bar__container img {
@@ -104,7 +105,7 @@ div[data-descr]:hover::after {
     width: 20px;
     /* float: left; */
     position: absolute;
-    left: 25px;
+    left: 16px;
 }
 
 /* journal form */
