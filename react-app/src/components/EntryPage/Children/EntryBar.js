@@ -126,11 +126,6 @@ const EntryBar = ({
         onClick={() => history.push(`/journals/${id}/new`)}>
           Add
         </button>
-        <button 
-        className="journal-bar__buttons" 
-        onClick={() => dispatch(setEditable(true))}>
-          Edit
-        </button>
         <button
           className="journal-bar__buttons"
           onClick={() => deleteCurrentEntry()}
@@ -156,3 +151,10 @@ const EntryBar = ({
 };
 
 export default EntryBar;
+
+
+// <button
+//   className="journal-bar__buttons"
+//   onClick={() => dispatch(setEditable(true))}>
+//   Edit
+// </button>
