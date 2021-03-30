@@ -1,4 +1,5 @@
 .home-page__body {
+    background-color: #f4f5db;
     grid-area: body;
     /* display: flex;
     flex-direction: row; */
