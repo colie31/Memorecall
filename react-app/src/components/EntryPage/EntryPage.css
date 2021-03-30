@@ -22,6 +22,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: #f4f5db;
 }
 
 .entry-body__container > svg {

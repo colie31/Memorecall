@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+//components
 import EntryBar from "./Children/EntryBar"
 import Entry from "./Children/Entry"
 
@@ -75,7 +76,7 @@ const EntryPage = () => {
                 onClick={() => (editable ? null : handleClick("left"))}
               />
               <Entry
-                // entry={entry}
+                entries={entries}
                 setSelectedDay={setSelectedDay}
                 editable={editable}
                 body={body}

@@ -8,6 +8,7 @@ import AddEntryModal from "./AddEntryModal"
 import { Modal } from "../../../context/Modal"
 import TopPage from "../PageComponents/TopPage";
 // import { setJournal } from "../../../store/journals"
+import { setIndex } from "../../../store/entries";
 
 const Entry = ({ 
     body, 
@@ -17,9 +18,9 @@ const Entry = ({
     categories,
     category,
     setCategory,  
-    // entry 
+    entries 
   }) => {
-
+    const dispatch = useDispatch();
     const entry = useSelector((state) => state.entries.entry);
 
     let page;
@@ -37,6 +38,10 @@ const Entry = ({
           />
         );
     }
+
+    useEffect(() => {
+      dispatch(setIndex(entries.length-1))
+    }, [])
     
     
     
