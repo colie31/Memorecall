@@ -5,7 +5,10 @@ import { Modal } from "../../../context/Modal"
 import "../HomePage.css"
 
 import JournalForm from "./JournalForm"
+//actions
 import { deleteJournal } from "../../../store/journals"
+import { getAllJournalEntries } from "../../../store/entries"
+
 import edit from "../../../pics/edit-icon.png"
 import view from "../../../pics/journal-icon.png"
 
@@ -16,7 +19,8 @@ const SideBar = ({ theJournal, user }) => {
   const [ method, setMethod ] = useState("")
   console.log("journal", theJournal)
 
-  const directUserToJournal = (id) => {
+  const directUserToJournal = async (id) => {
+    await dispatch(getAllJournalEntries(id))
     history.push(`journals/${id}`);
   };
 

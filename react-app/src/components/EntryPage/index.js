@@ -39,6 +39,7 @@ const EntryPage = () => {
         await dispatch(getJournals(user.id))
         await dispatch(getAllJournalEntries(id))
         await dispatch(getCategories());
+        console.log('this useEffect')
       })()
     }, [dispatch])
 

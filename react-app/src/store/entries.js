@@ -130,6 +130,7 @@ const entryReducer = (state = initialState, action) => {
     switch (action.type) {
       case ALL_ENTRIES:
         newState = Object.assign({}, state, { entries: action.payload });
+        newState.index = newState.entries.length -1
         newState.entry = newState.entries[newState.index];
         return newState;
       case CURRENT_ENTRY:
@@ -170,6 +171,8 @@ const entryReducer = (state = initialState, action) => {
       case ADD_ENTRY:
           newState = Object.assign({}, state)
             newState.entries = [...newState.entries, action.payload]
+            newState.index = newState.entries.length -1
+            newState.entry = newState.entries[newState.index]
             return newState;
       default:
         return state;

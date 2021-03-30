@@ -20,7 +20,7 @@ const Entry = ({
     setCategory,  
     entries 
   }) => {
-    const dispatch = useDispatch();
+    
     const entry = useSelector((state) => state.entries.entry);
 
     let page;
@@ -38,12 +38,6 @@ const Entry = ({
           />
         );
     }
-
-    useEffect(() => {
-      dispatch(setIndex(entries.length-1))
-    }, [])
-    
-    
     
     return (
       <div className="entry-body__page">
