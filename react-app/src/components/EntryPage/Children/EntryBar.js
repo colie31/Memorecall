@@ -62,10 +62,10 @@ const EntryBar = ({
     if(rightDate < searchedDate && leftDate > searchedDate) {
       let rightSide = searchedDate - rightDate;
       let leftSide = leftDate - searchedDate
-      if(rightSide < leftSide) {
-        return dispatch(setIndex(entries.indexOf(arrayRight[arrayRight.length - 1])));
-      } else {
+      if(rightSide > leftSide) {
         return dispatch(setIndex(entries.indexOf(arrayLeft[0])));
+      } else {
+        return dispatch(setIndex(entries.indexOf(arrayRight[arrayRight.length - 1])));
       }
     }
     
@@ -78,9 +78,9 @@ const EntryBar = ({
 
   const setCurrentEntry = (e) => {
     setSelectedDay(e)
-     if (helperFunction(e) < helperFunction(entries[0].date_object)) {
+     if (helperFunction(e) <= helperFunction(entries[0].date_object)) {
         return dispatch(setIndex(0));
-     } else if(helperFunction(e) >
+     } else if(helperFunction(e) >=
        helperFunction(entries[entries.length - 1].date_object)) {
         return dispatch(setIndex(entries.length - 1));
      }
