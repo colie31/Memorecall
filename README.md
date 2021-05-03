@@ -1,5 +1,5 @@
 # Memorecall
-![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/colie31/Memorecall?style=flat-square)
+![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/colie31/Memorecall?style=flat-square) https://img.shields.io/github/languages/count/colie31/Memorecall?color=green&style=flat-square
 
 ## An application that allows a user to create and store personal journals
 
