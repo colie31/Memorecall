@@ -22,24 +22,25 @@
 
 To use this project, first clone the repo on your device using the command below:
 
+* Create a git repository
 ```git init```
 
-```git clone https://github.com/navendu-pottekkat/nsfw-filter.git```
-
-
 * Clone Memorecall application
-* Install dependencies from root directory
+```git clone https://github.com/colie31/Memorecall.git```
 
-`pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
+* Install dependencies from root directory
+```pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt```
 
 * Create a **.env** file using the following template:
 
+```
 >FLASK_APP=app  
 >FLASK_ENV=development  
 >SECRET_KEY=((Insert your own secret key here))  
 >DATABASE_URL=postgresql://((Admin Username)):((Admin Password))@((Host Address))/((Database Name))
+```
 
-* Set up a PostgreSQL database with a username, password and database name that you provided in the **.env** file.
+* Set up a PostgreSQL database user with a username, password and database name that you provided in the **.env** file.
 
 * Follow sqeuence to go into the pipenv shell and migrate, then seed the database:
 
