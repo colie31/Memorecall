@@ -64,11 +64,7 @@ To use this project, first clone the repo on your device using the command below
 
 ```npm start```
 
-* If successful, navigating to the address in the react app **.env** file in a browser should show the welcome page!
-
--------------------------------------------
-
-## How to use Memorecall
+## Usage
 
 Log in with by clicking `Demo Login` or **Sign Up**!
 
