@@ -5,6 +5,16 @@
 
 ## An application that allows a user to create and store personal journals
 
+- [Project Title](#project-title)
+- [Table of contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [Contribute](#contribute)
+    - [Sponsor](#sponsor)
+    - [Adding new features or fixing bugs](#adding-new-features-or-fixing-bugs)
+- [Footer](#footer)
+
 ## Installation
 * Clone Memorecall application
 * Install dependencies from root directory
