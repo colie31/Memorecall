@@ -11,11 +11,11 @@
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Development](#development)
+<!--- [Development](#development)
 - [Contribute](#contribute)
     - [Sponsor](#sponsor)
     - [Adding new features or fixing bugs](#adding-new-features-or-fixing-bugs)
-- [Footer](#footer)
+- [Footer](#footer) --->
 
 ## Installation
 [(Back to top)](#table-of-contents)
