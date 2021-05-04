@@ -18,6 +18,15 @@
 - [Footer](#footer)
 
 ## Installation
+[(Back to top)](#table-of-contents)
+
+To use this project, first clone the repo on your device using the command below:
+
+```git init```
+
+```git clone https://github.com/navendu-pottekkat/nsfw-filter.git```
+
+
 * Clone Memorecall application
 * Install dependencies from root directory
 
