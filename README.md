@@ -3,9 +3,11 @@
 # Memorecall
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/colie31/Memorecall?style=flat-square) ![GitHub language count](https://img.shields.io/github/languages/count/colie31/Memorecall?color=green&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/colie31/Memorecall?color=brown&style=flat-square) ![npm](https://img.shields.io/npm/v/eslint-config-react-app?style=flat-square)
 
-## An application that allows a user to create and store personal journals
+### An application that allows a user to create and store personal journals
 
-- [Project Title](#project-title)
+## Table of Contents
+
+- [Project Title](#memorecall)
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
