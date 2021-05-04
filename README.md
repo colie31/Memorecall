@@ -65,6 +65,7 @@ To use this project, first clone the repo on your device using the command below
 ```npm start```
 
 ## Usage
+[(Back to top)](#table-of-contents)
 
 Log in with by clicking `Demo Login` or **Sign Up**!
 
