@@ -1,4 +1,4 @@
-![Banner](https://readmecontent.s3.us-east-2.amazonaws.com/memorecal_banner2.gif)
+![Banner](https://readmecontent.s3.us-east-2.amazonaws.com/memorecall_fixed+(1).gif)
 
 # Memorecall
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/colie31/Memorecall?style=flat-square) ![GitHub language count](https://img.shields.io/github/languages/count/colie31/Memorecall?color=green&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/colie31/Memorecall?color=brown&style=flat-square) ![npm](https://img.shields.io/npm/v/eslint-config-react-app?style=flat-square)
